@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Impact - Hopeful Hearts Charity</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            200: '#99f6e4',
+                            300: '#5eead4',
+                            400: '#2dd4bf',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            800: '#115e59',
+                            900: '#134e4a',
+                        },
+                        teal: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            200: '#99f6e4',
+                            300: '#5eead4',
+                            400: '#2dd4bf',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            800: '#115e59',
+                            900: '#134e4a',
+                        },
+                        background: {
+                            light: '#f8fafc',
+                            dark: '#0f172a',
+                        }
+                    },
+                    fontFamily: {
+                        'sans': ['Public Sans', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(20, 184, 166, 0.9) 0%, rgba(13, 148, 136, 0.9) 100%);
+        }
+        .stat-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .story-card {
+            transition: transform 0.3s ease;
+        }
+        .story-card:hover {
+            transform: scale(1.03);
+        }
+        .mobile-menu {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-sans text-gray-800 dark:text-gray-200">
+    <!-- Header/Navigation -->
+    <header class="sticky top-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border-b border-teal-200 dark:border-teal-800 shadow-sm">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 lg:h-20">
+                <!-- Logo -->
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 text-teal-500">
+                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <h2 class="text-xl font-bold text-gray-900 dark:text-white">Hopeful Hearts</h2>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center gap-8">
+                    <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors" href="index.html#home">Home</a>
+                    <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors" href="about.html#about">About Us</a>
+                    <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors" href="#impact">Impact</a>
+                    <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors" href="work.html#work">Our Work</a>
+                    <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors" href="projects.html#projects">Projects</a>
+                    <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors" href="join.html#join">Join Us</a>
+                    <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors" href="contact.html#contact">Contact</a>
+                </nav>
+
+                <!-- Desktop CTA Buttons -->
+                <div class="hidden lg:flex items-center gap-4">
+                    <button class="flex items-center justify-center h-10 px-5 bg-teal-500 text-white font-semibold rounded-lg hover:bg-teal-600 transition-colors">
+                        <span>Donate</span>
+                    </button>
+                    <button class="h-10 w-10 flex items-center justify-center bg-teal-100 dark:bg-teal-900/30 hover:bg-teal-200 dark:hover:bg-teal-800/50 rounded-lg transition-colors" title="Search" aria-label="Search">
+                        <svg class="w-5 h-5 text-teal-600 dark:text-teal-400" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="lg:hidden flex items-center justify-center h-10 w-10 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Open menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu lg:hidden hidden bg-white dark:bg-gray-900 border-t border-teal-100 dark:border-teal-800 shadow-lg">
+            <div class="container mx-auto px-4 py-4">
+                <div class="flex flex-col space-y-4">
+                    <a class="text-base font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors py-2" href="index.html#home">Home</a>
+                    <a class="text-base font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors py-2" href="about.html#about">About Us</a>
+                    <a class="text-base font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors py-2" href="#impact">Impact</a>
+                    <a class="text-base font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors py-2" href="work.html#work">Our Work</a>
+                    <a class="text-base font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors py-2" href="projects.html#projects">Projects</a>
+                    <a class="text-base font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors py-2" href="join.html#join">Join Us</a>
+                    <a class="text-base font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors py-2" href="contact.html#contact">Contact</a>
+                    <div class="pt-4 border-t border-gray-200 dark:border-gray-700">
+                        <button class="w-full flex items-center justify-center h-10 bg-teal-500 text-white font-semibold rounded-lg hover:bg-teal-600 transition-colors">
+                            <span>Donate Now</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Impact Section -->
+        <section id="impact" class="py-16 lg:py-24 bg-teal-50 dark:bg-teal-900/20">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900 dark:text-white">Our Impact</h2>
+                <p class="text-lg text-center text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">Through the generous support of donors and volunteers, we've been able to make a tangible difference in communities around the world.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="stat-card bg-white dark:bg-gray-800 rounded-xl p-6 text-center shadow-sm border border-teal-100 dark:border-teal-800">
+                        <div class="text-teal-500 w-12 h-12 mx-auto mb-4 flex items-center justify-center bg-teal-100 dark:bg-teal-900/30 rounded-full">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M117.25,157.92a60,60,0,1,0-66.5,0A95.83,95.83,0,0,0,3.53,195.63a8,8,0,1,0,13.4,8.74,80,80,0,0,1,134.14,0,8,8,0,0,0,13.4-8.74A95.83,95.83,0,0,0,117.25,157.92ZM40,108a44,44,0,1,1,44,44A44.05,44.05,0,0,1,40,108Z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">25,000+</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Lives Touched</p>
+                    </div>
+                    
+                    <div class="stat-card bg-white dark:bg-gray-800 rounded-xl p-6 text-center shadow-sm border border-teal-100 dark:border-teal-800">
+                        <div class="text-teal-500 w-12 h-12 mx-auto mb-4 flex items-center justify-center bg-teal-100 dark:bg-teal-900/30 rounded-full">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M218.83,103.77l-80-75.48a1.14,1.14,0,0,1-.11-.11,16,16,0,0,0-21.53,0l-.11.11L37.17,103.77A16,16,0,0,0,32,115.55V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V160h32v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V115.55A16,16,0,0,0,218.83,103.77ZM208,208H160V160a16,16,0,0,0-16-16H112a16,16,0,0,0-16,16v48H48V115.55l.11-.1L128,40l79.9,75.43.11.1Z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">120+</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Community Projects</p>
+                    </div>
+                    
+                    <div class="stat-card bg-white dark:bg-gray-800 rounded-xl p-6 text-center shadow-sm border border-teal-100 dark:border-teal-800">
+                        <div class="text-teal-500 w-12 h-12 mx-auto mb-4 flex items-center justify-center bg-teal-100 dark:bg-teal-900/30 rounded-full">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M230.33,141.06a24.34,24.34,0,0,0-18.61-4.77C230.5,117.33,240,98.48,240,80c0-26.47-21.29-48-47.46-48A47.58,47.58,0,0,0,156,48.75,47.58,47.58,0,0,0,119.46,32C93.29,32,72,53.53,72,80c0,11,3.24,21.69,10.06,33a31.87,31.87,0,0,0-14.75,8.4L44.69,144H16A16,16,0,0,0,0,160v40a16,16,0,0,0,16,16H120a7.93,7.93,0,0,0,1.94-.24l64-16a6.94,6.94,0,0,0,1.19-.4L226,182.82l.44-.2a24.6,24.6,0,0,0,3.93-41.56ZM119.46,48A31.15,31.15,0,0,1,148.6,67a8,8,0,0,0,14.8,0,31.15,31.15,0,0,1,29.14-19C209.59,48,224,62.65,224,80c0,19.51-15.79,41.58-45.66,63.9l-11.09,2.55A28,28,0,0,0,140,112H100.68C92.05,100.36,88,90.12,88,80,88,62.65,102.41,48,119.46,48ZM16,160H40v40H16Zm203.43,8.21-38,16.18L119,200H56V155.31l22.63-22.62A15.86,15.86,0,0,1,89.94,128H140a12,12,0,0,1,0,24H112a8,8,0,0,0,0,16h32a8.32,8.32,0,0,0,1.79-.2l67-15.41.31-.08a8.6,8.6,0,0,1,6.3,15.9Z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">98%</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Donor Satisfaction</p>
+                    </div>
+                    
+                    <div class="stat-card bg-white dark:bg-gray-800 rounded-xl p-6 text-center shadow-sm border border-teal-100 dark:border-teal-800">
+                        <div class="text-teal-500 w-12 h-12 mx-auto mb-4 flex items-center justify-center bg-teal-100 dark:bg-teal-900/30 rounded-full">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M239.89,198.83a16,16,0,0,1-12.22,6.17H28.33a16,16,0,0,1-12.22-6.17,16.1,16.1,0,0,1-3.18-13l16-128A16,16,0,0,1,44.33,48H211.67a16,16,0,0,1,15.4,12.83l16,128A16.1,16.1,0,0,1,239.89,198.83ZM219.67,64H36.33L22.22,184H233.78ZM168,104a8,8,0,0,0,8-8V88a40,40,0,0,0-80,0v8a8,8,0,0,0,16,0V88a24,24,0,0,1,48,0v8A8,8,0,0,0,168,104Z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">15</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Countries Reached</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="lg:col-span-2">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-8 h-8 text-teal-400">
+                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h2 class="text-xl font-bold">Hopeful Hearts</h2>
+                    </div>
+                    <p class="text-gray-400 mb-6 max-w-md">We are dedicated to creating sustainable change in underserved communities through education, healthcare, and economic development initiatives.</p>
+                    <div class="flex gap-4">
+                        <a class="text-gray-400 hover:text-teal-400 transition-colors" href="#">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"/>
+                            </svg>
+                        </a>
+                        <a class="text-gray-400 hover:text-teal-400 transition-colors" href="#">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M247.39,68.94A8,8,0,0,0,240,64H209.57A48.66,48.66,0,0,0,168.1,40a46.91,46.91,0,0,0-33.75,13.7A47.9,47.9,0,0,0,120,88v6.09C79.74,83.47,46.81,50.72,46.46,50.37a8,8,0,0,0-13.65,4.92c-4.31,47.79,9.57,79.77,22,98.18a110.93,110.93,0,0,0,21.88,24.2c-15.23,17.53-39.21,26.74-39.47,26.84a8,8,0,0,0-3.85,11.93c.75,1.12,3.75,5.05,11.08,8.72C53.51,229.7,65.48,232,80,232c70.67,0,129.72-54.42,135.75-124.44l29.91-29.9A8,8,0,0,0,247.39,68.94Zm-45,29.41a8,8,0,0,0-2.32,5.14C196,166.58,143.28,216,80,216c-10.56,0-18-1.4-23.22-3.08,11.51-6.25,27.56-17,37.88-32.48A8,8,0,0,0,92,169.08c-.47-.27-43.91-26.34-44-96,16,13,45.25,33.17,78.67,38.79A8,8,0,0,0,136,104V88a32,32,0,0,1,9.6-22.92A30.94,30.94,0,0,1,167.9,56c12.66.16,24.49,7.88,29.44,19.21A8,8,0,0,0,204.67,80h16Z"/>
+                            </svg>
+                        </a>
+                        <a class="text-gray-400 hover:text-teal-400 transition-colors" href="#">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm8,191.63V152h24a8,8,0,0,0,0-16H136V112a16,16,0,0,1,16-16h16a8,8,0,0,0,0-16H152a32,32,0,0,0-32,32v24H96a8,8,0,0,0,0,16h24v63.63a88,88,0,1,1,16,0Z"/>
+                            </svg>
+                        </a>
+                        <a class="text-gray-400 hover:text-teal-400 transition-colors" href="#">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M216,72H176V64a40,40,0,0,0-40-40H120A40,40,0,0,0,80,64v8H40A16,16,0,0,0,24,88V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V88A16,16,0,0,0,216,72ZM96,64a24,24,0,0,1,24-24h16a24,24,0,0,1,24,24v8H96ZM216,200H40V88H80h96H216ZM112,120v48a8,8,0,0,1-16,0V120a8,8,0,0,1,16,0Zm48,0v48a8,8,0,0,1-16,0V120a8,8,0,0,1,16,0Z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold text-lg mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a class="text-gray-400 hover:text-teal-400 transition-colors" href="index.html#home">Home</a></li>
+                        <li><a class="text-gray-400 hover:text-teal-400 transition-colors" href="about.html#about">About Us</a></li>
+                        <li><a class="text-gray-400 hover:text-teal-400 transition-colors" href="#impact">Our Impact</a></li>
+                        <li><a class="text-gray-400 hover:text-teal-400 transition-colors" href="work.html#work">Our Work</a></li>
+                        <li><a class="text-gray-400 hover:text-teal-400 transition-colors" href="projects.html#projects">Projects</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold text-lg mb-4">Get Involved</h3>
+                    <ul class="space-y-2">
+                        <li><a class="text-gray-400 hover:text-teal-400 transition-colors" href="join.html#join">Donate</a></li>
+                        <li><a class="text-gray-400 hover:text-teal-400 transition-colors" href="join.html#join">Volunteer</a></li>
+                        <li><a class="text-gray-400 hover:text-teal-400 transition-colors" href="join.html#join">Partner With Us</a></li>
+                        <li><a class="text-gray-400 hover:text-teal-400 transition-colors" href="contact.html#contact">Contact Us</a></li>
+                        <li><a class="text-gray-400 hover:text-teal-400 transition-colors" href="#">Careers</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">© 2024 Hopeful Hearts. All rights reserved.</p>
+                <div class="flex gap-6 mt-4 md:mt-0">
+                    <a class="text-gray-400 hover:text-teal-400 transition-colors text-sm" href="#">Privacy Policy</a>
+                    <a class="text-gray-400 hover:text-teal-400 transition-colors text-sm" href="#">Terms of Service</a>
+                    <a class="text-gray-400 hover:text-teal-400 transition-colors text-sm" href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Close mobile menu if open
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('shadow-lg');
+            } else {
+                header.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+</body>
+</html>

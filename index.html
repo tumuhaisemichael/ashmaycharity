@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hopeful Hearts Charity</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            200: '#99f6e4',
+                            300: '#5eead4',
+                            400: '#2dd4bf',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            800: '#115e59',
+                            900: '#134e4a',
+                        },
+                        teal: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            200: '#99f6e4',
+                            300: '#5eead4',
+                            400: '#2dd4bf',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            800: '#115e59',
+                            900: '#134e4a',
+                        },
+                        background: {
+                            light: '#f8fafc',
+                            dark: '#0f172a',
+                        }
+                    },
+                    fontFamily: {
+                        'sans': ['Public Sans', 'sans-serif'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(20, 184, 166, 0.9) 0%, rgba(13, 148, 136, 0.9) 100%);
+        }
+        .stat-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .story-card {
+            transition: transform 0.3s ease;
+        }
+        .story-card:hover {
+            transform: scale(1.03);
+        }
+        .mobile-menu {
+            transition: all 0.3s ease;
+        }
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .work-card {
+            perspective: 1000px;
+            height: 320px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .work-card:hover {
+            transform: translateY(-5px);
+        }
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .work-card:hover .card-inner,
+        .work-card.flipped .card-inner {
+            transform: rotateY(180deg);
+        }
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 0.75rem;
+            overflow: hidden;
+        }
+        .card-back {
+            transform: rotateY(180deg);
+            background-size: cover;
+            background-position: center;
+        }
+        .animate-fade-in img {
+            transition: transform 0.3s ease;
+        }
+        .animate-fade-in img:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-sans text-gray-800 dark:text-gray-200">
+    <!-- Header/Navigation -->
+    <header class="sticky top-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border-b border-teal-200 dark:border-teal-800 shadow-sm">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 lg:h-20">
+                <!-- Logo -->
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 text-teal-500">
+                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <h2 class="text-xl font-bold text-gray-900 dark:text-white">Hopeful Hearts</h2>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center gap-8">
+                    <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors" href="#home">Home</a>
+                    <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors" href="about.html">About Us</a>
+                    <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors" href="impact.html">Impact</a>
+                    <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors" href="work.html">Our Work</a>
+                    <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors" href="projects.html">Projects</a>
+                    <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors" href="join.html">Join Us</a>
+                    <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors" href="contact.html">Contact</a>
+                </nav>
+
+                <!-- Desktop CTA Buttons -->
+                <div class="hidden lg:flex items-center gap-4">
+                    <button class="flex items-center justify-center h-10 px-5 bg-teal-500 text-white font-semibold rounded-lg hover:bg-teal-600 transition-colors">
+                        <span>Donate</span>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-button" class="lg:hidden flex items-center justify-center h-10 w-10 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Open menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu lg:hidden hidden bg-white dark:bg-gray-900 border-t border-teal-100 dark:border-teal-800 shadow-lg">
+            <div class="container mx-auto px-4 py-4">
+                <div class="flex flex-col space-y-4">
+                    <a class="text-base font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors py-2" href="index.html">Home</a>
+                    <a class="text-base font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors py-2" href="about.html">About Us</a>
+                    <a class="text-base font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors py-2" href="impact.html">Impact</a>
+                    <a class="text-base font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors py-2" href="work.html">Our Work</a>
+                    <a class="text-base font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors py-2" href="projects.html">Projects</a>
+                    <a class="text-base font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors py-2" href="join.html">Join Us</a>
+                    <a class="text-base font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors py-2" href="contact.html">Contact</a>
+                    <div class="pt-4 border-t border-gray-200 dark:border-gray-700">
+                        <button class="w-full flex items-center justify-center h-10 bg-teal-500 text-white font-semibold rounded-lg hover:bg-teal-600 transition-colors">
+                            <span>Donate Now</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="relative min-h-screen flex items-center justify-center text-center text-white bg-cover bg-center bg-fixed" style='background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80");'>
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl animate-fade-in">
+                <h1 class="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight mb-6">Empowering Communities, Transforming Lives</h1>
+                <p class="text-lg md:text-xl lg:text-2xl font-light mb-8 max-w-3xl mx-auto">Join us in our mission to provide essential resources and support to underserved communities, fostering hope and creating lasting change.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button class="h-12 px-8 bg-teal-500 text-white font-bold rounded-lg text-base hover:bg-teal-600 transition-colors">
+                        <span>Learn More</span>
+                    </button>
+                    <button class="h-12 px-8 bg-white/20 text-white font-bold rounded-lg text-base hover:bg-white/30 backdrop-blur-sm transition-colors">
+                        <span>Donate Now</span>
+                    </button>
+                </div>
+            </div>
+            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </div>
+        </section>
+
+        <!-- About Preview Section -->
+        <section class="py-16 lg:py-24 bg-white dark:bg-gray-800">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="animate-slide-up">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900 dark:text-white">About Hopeful Hearts</h2>
+                        <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">Founded in 2010, Hopeful Hearts is a non-profit organization dedicated to creating sustainable change in underserved communities worldwide. Our mission is to empower individuals and communities through education, healthcare, and economic development initiatives.</p>
+                        <p class="text-lg text-gray-600 dark:text-gray-300 mb-8">We believe that every person deserves the opportunity to thrive, and we work tirelessly to break the cycle of poverty by addressing its root causes through innovative, community-led solutions.</p>
+                        <div class="flex flex-wrap gap-4 mb-6">
+                            <div class="flex items-center gap-2">
+                                <div class="w-4 h-4 bg-teal-500 rounded-full"></div>
+                                <span class="text-gray-700 dark:text-gray-300">Community-led approach</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-4 h-4 bg-teal-500 rounded-full"></div>
+                                <span class="text-gray-700 dark:text-gray-300">Sustainable solutions</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <div class="w-4 h-4 bg-teal-500 rounded-full"></div>
+                                <span class="text-gray-700 dark:text-gray-300">Transparent operations</span>
+                            </div>
+                        </div>
+                        <a href="about.html" class="inline-flex items-center h-12 px-6 bg-teal-500 text-white font-semibold rounded-lg hover:bg-teal-600 transition-colors">
+                            <span>Our Story</span>
+                            <svg class="w-4 h-4 ml-2" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 animate-fade-in">
+                        <div class="rounded-xl overflow-hidden shadow-lg cursor-pointer">
+                            <img src="https://images.unsplash.com/photo-1551833993-1d0ee4c0b837?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80" alt="Community gathering" class="w-full h-48 object-cover" data-description="Our community gatherings bring people together to share experiences and build stronger bonds.">
+                        </div>
+                        <div class="rounded-xl overflow-hidden shadow-lg mt-8 cursor-pointer">
+                            <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Children learning" class="w-full h-48 object-cover" data-description="Providing quality education to children in underserved areas, opening doors to brighter futures.">
+                        </div>
+                        <div class="rounded-xl overflow-hidden shadow-lg cursor-pointer">
+                            <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Volunteers at work" class="w-full h-48 object-cover" data-description="Dedicated volunteers working tirelessly to make a difference in communities worldwide.">
+                        </div>
+                        <div class="rounded-xl overflow-hidden shadow-lg mt-8 cursor-pointer">
+                            <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Medical assistance" class="w-full h-48 object-cover" data-description="Delivering essential medical care and support to those who need it most.">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Impact Statistics Section -->
+        <section class="py-16 lg:py-24 bg-teal-50 dark:bg-teal-900/20">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900 dark:text-white">Our Impact</h2>
+                <p class="text-lg text-center text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">Through the generous support of donors and volunteers, we've been able to make a tangible difference in communities around the world.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="stat-card bg-white dark:bg-gray-800 rounded-xl p-6 text-center shadow-sm border border-teal-100 dark:border-teal-800">
+                        <div class="text-teal-500 w-12 h-12 mx-auto mb-4 flex items-center justify-center bg-teal-100 dark:bg-teal-900/30 rounded-full">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M117.25,157.92a60,60,0,1,0-66.5,0A95.83,95.83,0,0,0,3.53,195.63a8,8,0,1,0,13.4,8.74,80,80,0,0,1,134.14,0,8,8,0,0,0,13.4-8.74A95.83,95.83,0,0,0,117.25,157.92ZM40,108a44,44,0,1,1,44,44A44.05,44.05,0,0,1,40,108Z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">25,000+</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Lives Touched</p>
+                    </div>
+                    
+                    <div class="stat-card bg-white dark:bg-gray-800 rounded-xl p-6 text-center shadow-sm border border-teal-100 dark:border-teal-800">
+                        <div class="text-teal-500 w-12 h-12 mx-auto mb-4 flex items-center justify-center bg-teal-100 dark:bg-teal-900/30 rounded-full">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M218.83,103.77l-80-75.48a1.14,1.14,0,0,1-.11-.11,16,16,0,0,0-21.53,0l-.11.11L37.17,103.77A16,16,0,0,0,32,115.55V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V160h32v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V115.55A16,16,0,0,0,218.83,103.77ZM208,208H160V160a16,16,0,0,0-16-16H112a16,16,0,0,0-16,16v48H48V115.55l.11-.1L128,40l79.9,75.43.11.1Z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">120+</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Community Projects</p>
+                    </div>
+                    
+                    <div class="stat-card bg-white dark:bg-gray-800 rounded-xl p-6 text-center shadow-sm border border-teal-100 dark:border-teal-800">
+                        <div class="text-teal-500 w-12 h-12 mx-auto mb-4 flex items-center justify-center bg-teal-100 dark:bg-teal-900/30 rounded-full">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M230.33,141.06a24.34,24.34,0,0,0-18.61-4.77C230.5,117.33,240,98.48,240,80c0-26.47-21.29-48-47.46-48A47.58,47.58,0,0,0,156,48.75,47.58,47.58,0,0,0,119.46,32C93.29,32,72,53.53,72,80c0,11,3.24,21.69,10.06,33a31.87,31.87,0,0,0-14.75,8.4L44.69,144H16A16,16,0,0,0,0,160v40a16,16,0,0,0,16,16H120a7.93,7.93,0,0,0,1.94-.24l64-16a6.94,6.94,0,0,0,1.19-.4L226,182.82l.44-.2a24.6,24.6,0,0,0,3.93-41.56ZM119.46,48A31.15,31.15,0,0,1,148.6,67a8,8,0,0,0,14.8,0,31.15,31.15,0,0,1,29.14-19C209.59,48,224,62.65,224,80c0,19.51-15.79,41.58-45.66,63.9l-11.09,2.55A28,28,0,0,0,140,112H100.68C92.05,100.36,88,90.12,88,80,88,62.65,102.41,48,119.46,48ZM16,160H40v40H16Zm203.43,8.21-38,16.18L119,200H56V155.31l22.63-22.62A15.86,15.86,0,0,1,89.94,128H140a12,12,0,0,1,0,24H112a8,8,0,0,0,0,16h32a8.32,8.32,0,0,0,1.79-.2l67-15.41.31-.08a8.6,8.6,0,0,1,6.3,15.9Z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">98%</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Donor Satisfaction</p>
+                    </div>
+                    
+                    <div class="stat-card bg-white dark:bg-gray-800 rounded-xl p-6 text-center shadow-sm border border-teal-100 dark:border-teal-800">
+                        <div class="text-teal-500 w-12 h-12 mx-auto mb-4 flex items-center justify-center bg-teal-100 dark:bg-teal-900/30 rounded-full">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M239.89,198.83a16,16,0,0,1-12.22,6.17H28.33a16,16,0,0,1-12.22-6.17,16.1,16.1,0,0,1-3.18-13l16-128A16,16,0,0,1,44.33,48H211.67a16,16,0,0,1,15.4,12.83l16,128A16.1,16.1,0,0,1,239.89,198.83ZM219.67,64H36.33L22.22,184H233.78ZM168,104a8,8,0,0,0,8-8V88a40,40,0,0,0-80,0v8a8,8,0,0,0,16,0V88a24,24,0,0,1,48,0v8A8,8,0,0,0,168,104Z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">15</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Countries Reached</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Work Areas Section -->
+        <section class="py-16 lg:py-24 bg-white dark:bg-gray-800">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900 dark:text-white">Our Focus Areas</h2>
+                <p class="text-lg text-center text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">We focus on four key areas to create sustainable change in communities worldwide.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="work-card bg-teal-50 dark:bg-teal-900/20 rounded-xl border border-teal-100 dark:border-teal-800">
+                        <div class="card-inner">
+                            <div class="card-front p-6 text-center">
+                                <div class="text-teal-500 w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-teal-100 dark:bg-teal-900/30 rounded-full">
+                                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M251.76,88.94l-120-64a8,8,0,0,0-7.52,0l-120,64a8,8,0,0,0,0,14.12L32,117.87v48.42a15.91,15.91,0,0,0,4.06,10.65C49.16,191.53,78.51,216,128,216a130,130,0,0,0,48-8.76V240a8,8,0,0,0,16,0V199.51a115.63,115.63,0,0,0,27.94-22.57A15.91,15.91,0,0,0,224,166.29V117.87l27.76-14.81a8,8,0,0,0,0-14.12ZM128,200c-43.27,0-68.72-21.14-80-33.71V126.4l76.24,40.66a8,8,0,0,0,7.52,0L176,143.47v36.34C166,191.67,150.38,200,128,200Zm80-33.75a97.83,97.83,0,0,1-16,14.25V134.93l16-8.53ZM188,118.94l-.22-.13-56-29.87a8,8,0,0,0-7.52,14.12L171,128l-43,22.93L25,96,128,41.07,231,96Z"/>
+                                    </svg>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Education</h3>
+                                <p class="text-gray-600 dark:text-gray-300">Building schools, providing scholarships, and training teachers to ensure quality education for all.</p>
+                            </div>
+                            <div class="card-back" style="background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80');"></div>
+                        </div>
+                    </div>
+
+                    <div class="work-card bg-teal-50 dark:bg-teal-900/20 rounded-xl border border-teal-100 dark:border-teal-800">
+                        <div class="card-inner">
+                            <div class="card-front p-6 text-center">
+                                <div class="text-teal-500 w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-teal-100 dark:bg-teal-900/30 rounded-full">
+                                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M240,94c0,30.6-17.7,62-52.6,93.4a334.34,334.34,0,0,1-51.5,37.6,8.1,8.1,0,0,1-7.8,0,334.34,334.34,0,0,1-51.5-37.6C33.7,156,16,124.6,16,94A62.07,62.07,0,0,1,78,32c20.65,0,38.73,8.88,50,23.89C139.27,40.88,157.35,32,178,32A62.07,62.07,0,0,1,240,94Z"/>
+                                    </svg>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Healthcare</h3>
+                                <p class="text-gray-600 dark:text-gray-300">Establishing clinics, providing medical supplies, and promoting preventive healthcare practices.</p>
+                            </div>
+                            <div class="card-back" style="background-image: url('https://images.unsplash.com/photo-1576765608622-2e96d3a6cbb1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80');"></div>
+                        </div>
+                    </div>
+
+                    <div class="work-card bg-teal-50 dark:bg-teal-900/20 rounded-xl border border-teal-100 dark:border-teal-800">
+                        <div class="card-inner">
+                            <div class="card-front p-6 text-center">
+                                <div class="text-teal-500 w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-teal-100 dark:bg-teal-900/30 rounded-full">
+                                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M245.48,125.14a16,16,0,0,0-13-10.25L170,110.47l-23.27-55.43a16,16,0,0,0-29.44,0L86,110.47,23.53,114.89a16,16,0,0,0-9.19,28.07L66.3,173,51.65,229.52a16,16,0,0,0,23.84,17.34L128,212.41l52.51,34.45a16,16,0,0,0,23.84-17.34L189.7,173l51-30A16,16,0,0,0,245.48,125.14Zm-69.46,50.78a16,16,0,0,0-5.16,15.71l10.47,41.49-37-24.28a16,16,0,0,0-17.7,0l-37,24.28,10.47-41.49a16,16,0,0,0-5.16-15.71l-34.64-26,43-6.26a16,16,0,0,0,13.46-8.78L128,82.09l19.22,45.8a16,16,0,0,0,13.46,8.78l43,6.26Z"/>
+                                    </svg>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Economic Development</h3>
+                                <p class="text-gray-600 dark:text-gray-300">Creating microfinance programs, vocational training, and supporting local entrepreneurs.</p>
+                            </div>
+                            <div class="card-back" style="background-image: url('https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80');"></div>
+                        </div>
+                    </div>
+
+                    <div class="work-card bg-teal-50 dark:bg-teal-900/20 rounded-xl border border-teal-100 dark:border-teal-800">
+                        <div class="card-inner">
+                            <div class="card-front p-6 text-center">
+                                <div class="text-teal-500 w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-teal-100 dark:bg-teal-900/30 rounded-full">
+                                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M219.31,184a16,16,0,0,1,0,22.63l-5.68,5.68a16,16,0,0,1-22.63,0l-48-48a16,16,0,0,1,0-22.63l48-48a16,16,0,0,1,22.63,0l5.68,5.68a16,16,0,0,1,0,22.63L190.63,136l28.68,28.69ZM105.37,88l28.69,28.69a16,16,0,0,1,0,22.62L105.37,168,36.69,99.31a16,16,0,0,1,0-22.62l48-48a16,16,0,0,1,22.63,0l5.68,5.68a16,16,0,0,1,0,22.63L70.63,80l34.74,34.74a16,16,0,0,1,0,22.63L70.63,172l34.74,34.74a16,16,0,0,1,0,22.63l-5.68,5.68a16,16,0,0,1-22.63,0l-48-48a16,16,0,0,1,0-22.63Z"/>
+                                    </svg>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Environmental Sustainability</h3>
+                                <p class="text-gray-600 dark:text-gray-300">Promoting clean water access, reforestation, and sustainable agricultural practices.</p>
+                            </div>
+                            <div class="card-back" style="background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80');"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Projects Section -->
+        <section class="py-16 lg:py-24 bg-teal-50 dark:bg-teal-900/20">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900 dark:text-white">Featured Projects</h2>
+                <p class="text-lg text-center text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">Explore some of our most impactful initiatives that are transforming communities.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="story-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg">
+                        <div class="w-full h-48 bg-cover bg-center" style='background-image: url("https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80");'></div>
+                        <div class="p-6">
+                            <span class="inline-block px-3 py-1 bg-teal-100 dark:bg-teal-900/30 text-teal-800 dark:text-teal-200 text-xs font-semibold rounded-full mb-3">Education</span>
+                            <h3 class="font-bold text-xl mb-2 text-gray-900 dark:text-white">Building Schools in Rural Areas</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">We've constructed 15 schools in remote villages, providing education to over 5,000 children who previously had no access to formal schooling.</p>
+                            <a href="projects.html" class="text-teal-500 font-semibold text-sm hover:text-teal-600 transition-colors flex items-center">
+                                <span>Learn More</span>
+                                <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="story-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg">
+                        <div class="w-full h-48 bg-cover bg-center" style='background-image: url("https://images.unsplash.com/photo-1576765608622-2e96d3a6cbb1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80");'></div>
+                        <div class="p-6">
+                            <span class="inline-block px-3 py-1 bg-teal-100 dark:bg-teal-900/30 text-teal-800 dark:text-teal-200 text-xs font-semibold rounded-full mb-3">Healthcare</span>
+                            <h3 class="font-bold text-xl mb-2 text-gray-900 dark:text-white">Mobile Medical Clinics</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Our fleet of mobile clinics brings essential healthcare services to remote communities, serving over 20,000 patients annually.</p>
+                            <a href="projects.html" class="text-teal-500 font-semibold text-sm hover:text-teal-600 transition-colors flex items-center">
+                                <span>Learn More</span>
+                                <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="story-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg">
+                        <div class="w-full h-48 bg-cover bg-center" style='background-image: url("https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80");'></div>
+                        <div class="p-6">
+                            <span class="inline-block px-3 py-1 bg-teal-100 dark:bg-teal-900/30 text-teal-800 dark:text-teal-200 text-xs font-semibold rounded-full mb-3">Economic Development</span>
+                            <h3 class="font-bold text-xl mb-2 text-gray-900 dark:text-white">Women's Entrepreneurship Program</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">We've trained 500 women in business skills and provided microloans to launch 300 small businesses, creating sustainable livelihoods.</p>
+                            <a href="projects.html" class="text-teal-500 font-semibold text-sm hover:text-teal-600 transition-colors flex items-center">
+                                <span>Learn More</span>
+                                <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-12">
+                    <a href="projects.html" class="inline-flex items-center h-12 px-8 bg-teal-500 text-white font-semibold rounded-lg hover:bg-teal-600 transition-colors">
+                        <span>View All Projects</span>
+                        <svg class="w-4 h-4 ml-2" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="py-16 lg:py-24 bg-white dark:bg-gray-800">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900 dark:text-white">What People Say</h2>
+                <p class="text-lg text-center text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">Hear from those whose lives have been transformed through our programs.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="testimonial-card bg-teal-50 dark:bg-teal-900/20 rounded-xl p-6 border border-teal-100 dark:border-teal-800">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-teal-100 dark:bg-teal-900/30 flex items-center justify-center text-teal-500 mr-4">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M224,216a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,216ZM216,96H176V56a8,8,0,0,0-8-8H88a8,8,0,0,0-8,8V96H40a8,8,0,0,0-8,8v64a8,8,0,0,0,8,8H216a8,8,0,0,0,8-8V104A8,8,0,0,0,216,96ZM96,64h64V96H96ZM48,160V112H80v48Zm160,0H176V112h32Z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 dark:text-white">Maria Rodriguez</h4>
+                                <p class="text-sm text-teal-600 dark:text-teal-400">Beneficiary, Education Program</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 italic">"Thanks to Hopeful Hearts, my children now have access to quality education. The new school in our village has changed our community forever."</p>
+                    </div>
+                    
+                    <div class="testimonial-card bg-teal-50 dark:bg-teal-900/20 rounded-xl p-6 border border-teal-100 dark:border-teal-800">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-teal-100 dark:bg-teal-900/30 flex items-center justify-center text-teal-500 mr-4">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M239.89,198.83a16,16,0,0,1-12.22,6.17H28.33a16,16,0,0,1-12.22-6.17,16.1,16.1,0,0,1-3.18-13l16-128A16,16,0,0,1,44.33,48H211.67a16,16,0,0,1,15.4,12.83l16,128A16.1,16.1,0,0,1,239.89,198.83ZM219.67,64H36.33L22.22,184H233.78ZM168,104a8,8,0,0,0,8-8V88a40,40,0,0,0-80,0v8a8,8,0,0,0,16,0V88a24,24,0,0,1,48,0v8A8,8,0,0,0,168,104Z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 dark:text-white">James Wilson</h4>
+                                <p class="text-sm text-teal-600 dark:text-teal-400">Monthly Donor</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 italic">"I've been donating to Hopeful Hearts for 5 years because I can see the tangible impact of their work. Their transparency and dedication are remarkable."</p>
+                    </div>
+                    
+                    <div class="testimonial-card bg-teal-50 dark:bg-teal-900/20 rounded-xl p-6 border border-teal-100 dark:border-teal-800">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 rounded-full bg-teal-100 dark:bg-teal-900/30 flex items-center justify-center text-teal-500 mr-4">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M117.25,157.92a60,60,0,1,0-66.5,0A95.83,95.83,0,0,0,3.53,195.63a8,8,0,1,0,13.4,8.74,80,80,0,0,1,134.14,0,8,8,0,0,0,13.4-8.74A95.83,95.83,0,0,0,117.25,157.92ZM40,108a44,44,0,1,1,44,44A44.05,44.05,0,0,1,40,108Z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900 dark:text-white">Sarah Johnson</h4>
+                                <p class="text-sm text-teal-600 dark:text-teal-400">Volunteer, Healthcare Initiative</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 italic">"Volunteering with Hopeful Hearts has been one of the most rewarding experiences of my life. Seeing the direct impact on communities is incredible."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section class="py-16 lg:py-24 text-center bg-teal-500 text-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
+                <h2 class="text-3xl md:text-4xl font-black tracking-tight mb-4">Make a Difference Today</h2>
+                <p class="text-lg md:text-xl mb-8 opacity-90">Your support can help us reach more communities and create a brighter future for those in need.</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button class="h-12 px-8 bg-white text-teal-500 font-bold rounded-lg text-base hover:bg-gray-100 transition-colors">
+                        <span>Donate Now</span>
+                    </button>
+                    <a href="contact.html" class="h-12 px-8 bg-teal-600 text-white font-bold rounded-lg text-base hover:bg-teal-700 transition-colors flex items-center justify-center">
+                        <span>Contact Us</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="lg:col-span-2">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-8 h-8 text-teal-400">
+                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h2 class="text-xl font-bold">Hopeful Hearts</h2>
+                    </div>
+                    <p class="text-gray-400 mb-6 max-w-md">We are dedicated to creating sustainable change in underserved communities through education, healthcare, and economic development initiatives.</p>
+                    <div class="flex gap-4">
+                        <a class="text-gray-400 hover:text-teal-400 transition-colors" href="#">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"/>
+                            </svg>
+                        </a>
+                        <a class="text-gray-400 hover:text-teal-400 transition-colors" href="#">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M247.39,68.94A8,8,0,0,0,240,64H209.57A48.66,48.66,0,0,0,168.1,40a46.91,46.91,0,0,0-33.75,13.7A47.9,47.9,0,0,0,120,88v6.09C79.74,83.47,46.81,50.72,46.46,50.37a8,8,0,0,0-13.65,4.92c-4.31,47.79,9.57,79.77,22,98.18a110.93,110.93,0,0,0,21.88,24.2c-15.23,17.53-39.21,26.74-39.47,26.84a8,8,0,0,0-3.85,11.93c.75,1.12,3.75,5.05,11.08,8.72C53.51,229.7,65.48,232,80,232c70.67,0,129.72-54.42,135.75-124.44l29.91-29.9A8,8,0,0,0,247.39,68.94Zm-45,29.41a8,8,0,0,0-2.32,5.14C196,166.58,143.28,216,80,216c-10.56,0-18-1.4-23.22-3.08,11.51-6.25,27.56-17,37.88-32.48A8,8,0,0,0,92,169.08c-.47-.27-43.91-26.34-44-96,16,13,45.25,33.17,78.67,38.79A8,8,0,0,0,136,104V88a32,32,0,0,1,9.6-22.92A30.94,30.94,0,0,1,167.9,56c12.66.16,24.49,7.88,29.44,19.21A8,8,0,0,0,204.67,80h16Z"/>
+                            </svg>
+                        </a>
+                        <a class="text-gray-400 hover:text-teal-400 transition-colors" href="#">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm8,191.63V152h24a8,8,0,0,0,0-16H136V112a16,16,0,0,1,16-16h16a8,8,0,0,0,0-16H152a32,32,0,0,0-32,32v24H96a8,8,0,0,0,0,16h24v63.63a88,88,0,1,1,16,0Z"/>
+                            </svg>
+                        </a>
+                        <a class="text-gray-400 hover:text-teal-400 transition-colors" href="#">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M216,72H176V64a40,40,0,0,0-40-40H120A40,40,0,0,0,80,64v8H40A16,16,0,0,0,24,88V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V88A16,16,0,0,0,216,72ZM96,64a24,24,0,0,1,24-24h16a24,24,0,0,1,24,24v8H96ZM216,200H40V88H80h96H216ZM112,120v48a8,8,0,0,1-16,0V120a8,8,0,0,1,16,0Zm48,0v48a8,8,0,0,1-16,0V120a8,8,0,0,1,16,0Z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold text-lg mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a class="text-gray-400 hover:text-teal-400 transition-colors" href="#home">Home</a></li>
+                        <li><a class="text-gray-400 hover:text-teal-400 transition-colors" href="about.html">About Us</a></li>
+                        <li><a class="text-gray-400 hover:text-teal-400 transition-colors" href="impact.html">Our Impact</a></li>
+                        <li><a class="text-gray-400 hover:text-teal-400 transition-colors" href="work.html">Our Work</a></li>
+                        <li><a class="text-gray-400 hover:text-teal-400 transition-colors" href="projects.html">Projects</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold text-lg mb-4">Get Involved</h3>
+                    <ul class="space-y-2">
+                        <li><a class="text-gray-400 hover:text-teal-400 transition-colors" href="join.html">Donate</a></li>
+                        <li><a class="text-gray-400 hover:text-teal-400 transition-colors" href="join.html">Volunteer</a></li>
+                        <li><a class="text-gray-400 hover:text-teal-400 transition-colors" href="join.html">Partner With Us</a></li>
+                        <li><a class="text-gray-400 hover:text-teal-400 transition-colors" href="contact.html">Contact Us</a></li>
+                        <li><a class="text-gray-400 hover:text-teal-400 transition-colors" href="#">Careers</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">© 2024 Hopeful Hearts. All rights reserved.</p>
+                <div class="flex gap-6 mt-4 md:mt-0">
+                    <a class="text-gray-400 hover:text-teal-400 transition-colors text-sm" href="#">Privacy Policy</a>
+                    <a class="text-gray-400 hover:text-teal-400 transition-colors text-sm" href="#">Terms of Service</a>
+                    <a class="text-gray-400 hover:text-teal-400 transition-colors text-sm" href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="image-modal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center hidden z-50">
+        <div class="relative max-w-4xl max-h-full p-4">
+            <img id="modal-image" src="" alt="" class="max-w-full max-h-full object-contain">
+            <p id="modal-description" class="text-white text-center mt-4 text-lg"></p>
+            <button id="close-modal" class="absolute top-4 right-4 text-white text-3xl hover:text-gray-300">&times;</button>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    // Close mobile menu if open
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.classList.add('shadow-lg');
+            } else {
+                header.classList.remove('shadow-lg');
+            }
+        });
+
+        // Image modal functionality
+        const modal = document.getElementById('image-modal');
+        const modalImage = document.getElementById('modal-image');
+        const modalDescription = document.getElementById('modal-description');
+        const closeModal = document.getElementById('close-modal');
+
+        // Get all images in the about section
+        const aboutImages = document.querySelectorAll('.animate-fade-in img');
+
+        aboutImages.forEach(img => {
+            img.parentElement.addEventListener('click', () => {
+                modalImage.src = img.src;
+                modalDescription.textContent = img.getAttribute('data-description');
+                modal.classList.remove('hidden');
+            });
+        });
+
+        closeModal.addEventListener('click', () => {
+            modal.classList.add('hidden');
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.add('hidden');
+            }
+        });
+
+        // Count-up animation for impact statistics
+        function animateNumber(element, target) {
+            let current = 0;
+            const increment = target / 100; // Adjust speed by changing denominator
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                // Format number with commas and add + if original had it
+                const formatted = Math.floor(current).toLocaleString() + (element.dataset.hasPlus ? '+' : '');
+                element.textContent = formatted;
+            }, 20); // Adjust interval for speed
+        }
+
+        // Add hover listeners to stat cards
+        const statCards = document.querySelectorAll('.stat-card');
+        statCards.forEach(card => {
+            const numberElement = card.querySelector('h3');
+            const originalText = numberElement.textContent;
+            const hasPlus = originalText.includes('+');
+            const cleanNumber = parseInt(originalText.replace(/[^\d]/g, ''));
+            numberElement.dataset.hasPlus = hasPlus;
+            numberElement.dataset.original = originalText;
+
+            card.addEventListener('mouseenter', () => {
+                // Reset to 0 and start animation
+                numberElement.textContent = '0' + (hasPlus ? '+' : '');
+                animateNumber(numberElement, cleanNumber);
+            });
+
+            card.addEventListener('mouseleave', () => {
+                // Reset to original text
+                numberElement.textContent = originalText;
+            });
+        });
+
+        // Work card flip functionality
+        const workCards = document.querySelectorAll('.work-card');
+        workCards.forEach(card => {
+            card.addEventListener('click', () => {
+                card.classList.toggle('flipped');
+            });
+        });
+    </script>
+</body>
+</html>
