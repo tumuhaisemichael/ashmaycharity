@@ -601,6 +601,20 @@
         </div>
     </div>
 
+    <!-- Donate Overlay -->
+    <div id="donate-overlay" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
+        <div class="bg-white dark:bg-gray-800 rounded-xl p-8 max-w-md mx-4 text-center shadow-2xl border border-teal-200 dark:border-teal-700">
+            <div class="w-16 h-16 bg-teal-100 dark:bg-teal-900/30 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg class="w-8 h-8 text-teal-500" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm45.66,85.66-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32ZM128,40a88,88,0,1,1-88,88A88.1,88.1,0,0,1,128,40Z"/>
+                </svg>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Thank You for Your Support</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-6">Donate Feature coming soon</p>
+            <button id="close-donate-overlay" class="bg-teal-500 text-white px-6 py-3 rounded-lg font-semibold hover:bg-teal-600 transition-colors">Close</button>
+        </div>
+    </div>
+
     <script>
         // Mobile menu toggle
         document.getElementById('mobile-menu-button').addEventListener('click', function() {
@@ -710,6 +724,30 @@
             card.addEventListener('click', () => {
                 card.classList.toggle('flipped');
             });
+        });
+
+        // Donate overlay functionality
+        const donateOverlay = document.getElementById('donate-overlay');
+        const closeDonateOverlay = document.getElementById('close-donate-overlay');
+
+        // Get all donate buttons
+        const donateButtons = document.querySelectorAll('button');
+        donateButtons.forEach(button => {
+            if (button.textContent.includes('Donate')) {
+                button.addEventListener('click', () => {
+                    donateOverlay.classList.remove('hidden');
+                });
+            }
+        });
+
+        closeDonateOverlay.addEventListener('click', () => {
+            donateOverlay.classList.add('hidden');
+        });
+
+        donateOverlay.addEventListener('click', (e) => {
+            if (e.target === donateOverlay) {
+                donateOverlay.classList.add('hidden');
+            }
         });
     </script>
 </body>
