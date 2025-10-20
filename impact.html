@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Impact - Ashmay Charity Charity</title>
+    <title>Our Impact - Hopeful Hearts Charity</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -83,6 +83,52 @@
         .mobile-menu {
             transition: all 0.3s ease;
         }
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .work-card {
+            transition: all 0.3s ease;
+        }
+        .work-card:hover {
+            transform: translateY(-5px);
+        }
+        .progress-bar {
+            height: 8px;
+            border-radius: 4px;
+            background-color: #e5e7eb;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 1s ease-in-out;
+        }
+        .map-container {
+            position: relative;
+            height: 400px;
+            background: linear-gradient(135deg, #0d9488 0%, #115e59 100%);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .map-point {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background-color: #f0fdfa;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 0 4px rgba(20, 184, 166, 0.5);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(20, 184, 166, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(20, 184, 166, 0); }
+        }
     </style>
 </head>
 <body class="bg-background-light dark:bg-background-dark font-sans text-gray-800 dark:text-gray-200">
@@ -92,23 +138,25 @@
             <div class="flex items-center justify-between h-16 lg:h-20">
                 <!-- Logo -->
                 <div class="flex items-center gap-3">
-                    <div class="w-8 h-8 text-teal-500">
-                        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z" fill="currentColor"/>
-                        </svg>
-                    </div>
-                    <h2 class="text-xl font-bold text-gray-900 dark:text-white">Ashmay Charity</h2>
+                    <a href="index.html" class="flex items-center gap-3">
+                        <div class="w-8 h-8 text-teal-500">
+                            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z" fill="currentColor"/>
+                            </svg>
+                        </div>
+                        <h2 class="text-xl font-bold text-gray-900 dark:text-white">Hopeful Hearts</h2>
+                    </a>
                 </div>
 
                 <!-- Desktop Navigation -->
                 <nav class="hidden lg:flex items-center gap-8">
-                    <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors" href="index.html#home">Home</a>
-                    <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors" href="about.html#about">About Us</a>
-                    <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors" href="#impact">Impact</a>
-                    <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors" href="work.html#work">Our Work</a>
-                    <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors" href="projects.html#projects">Projects</a>
-                    <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors" href="join.html#join">Join Us</a>
-                    <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors" href="contact.html#contact">Contact</a>
+                    <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors" href="index.html">Home</a>
+                    <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors" href="about.html">About Us</a>
+                    <a class="text-sm font-medium text-teal-500 transition-colors" href="impact.html">Impact</a>
+                    <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors" href="work.html">Our Work</a>
+                    <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors" href="projects.html">Projects</a>
+                    <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors" href="join.html">Join Us</a>
+                    <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors" href="contact.html">Contact</a>
                 </nav>
 
                 <!-- Desktop CTA Buttons -->
@@ -116,7 +164,7 @@
                     <button class="flex items-center justify-center h-10 px-5 bg-teal-500 text-white font-semibold rounded-lg hover:bg-teal-600 transition-colors">
                         <span>Donate</span>
                     </button>
-                    <button class="h-10 w-10 flex items-center justify-center bg-teal-100 dark:bg-teal-900/30 hover:bg-teal-200 dark:hover:bg-teal-800/50 rounded-lg transition-colors" title="Search" aria-label="Search">
+                    <button class="h-10 w-10 flex items-center justify-center bg-teal-100 dark:bg-teal-900/30 hover:bg-teal-200 dark:hover:bg-teal-800/50 rounded-lg transition-colors" title="Search">
                         <svg class="w-5 h-5 text-teal-600 dark:text-teal-400" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
                             <path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"/>
                         </svg>
@@ -136,13 +184,13 @@
         <div id="mobile-menu" class="mobile-menu lg:hidden hidden bg-white dark:bg-gray-900 border-t border-teal-100 dark:border-teal-800 shadow-lg">
             <div class="container mx-auto px-4 py-4">
                 <div class="flex flex-col space-y-4">
-                    <a class="text-base font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors py-2" href="index.html#home">Home</a>
-                    <a class="text-base font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors py-2" href="about.html#about">About Us</a>
-                    <a class="text-base font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors py-2" href="#impact">Impact</a>
-                    <a class="text-base font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors py-2" href="work.html#work">Our Work</a>
-                    <a class="text-base font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors py-2" href="projects.html#projects">Projects</a>
-                    <a class="text-base font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors py-2" href="join.html#join">Join Us</a>
-                    <a class="text-base font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors py-2" href="contact.html#contact">Contact</a>
+                    <a class="text-base font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors py-2" href="index.html">Home</a>
+                    <a class="text-base font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors py-2" href="about.html">About Us</a>
+                    <a class="text-base font-medium text-teal-500 transition-colors py-2" href="impact.html">Impact</a>
+                    <a class="text-base font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors py-2" href="work.html">Our Work</a>
+                    <a class="text-base font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors py-2" href="projects.html">Projects</a>
+                    <a class="text-base font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors py-2" href="join.html">Join Us</a>
+                    <a class="text-base font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors py-2" href="contact.html">Contact</a>
                     <div class="pt-4 border-t border-gray-200 dark:border-gray-700">
                         <button class="w-full flex items-center justify-center h-10 bg-teal-500 text-white font-semibold rounded-lg hover:bg-teal-600 transition-colors">
                             <span>Donate Now</span>
@@ -154,13 +202,63 @@
     </header>
 
     <main>
-        <!-- Impact Section -->
-        <section id="impact" class="py-16 lg:py-24 bg-teal-50 dark:bg-teal-900/20">
+        <!-- Hero Section -->
+        <section class="relative py-20 lg:py-28 flex items-center justify-center text-center text-white bg-cover bg-center" style='background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80");'>
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl animate-fade-in">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight mb-6">Our Impact</h1>
+                <p class="text-lg md:text-xl lg:text-2xl font-light mb-8 max-w-3xl mx-auto">Measuring change, transforming lives, and building sustainable futures through our dedicated programs.</p>
+            </div>
+        </section>
+
+        <!-- Impact Overview Section -->
+        <section class="py-16 lg:py-24 bg-white dark:bg-gray-800">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900 dark:text-white">Our Impact</h2>
-                <p class="text-lg text-center text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">Through the generous support of donors and volunteers, we've been able to make a tangible difference in communities around the world.</p>
+                <div class="max-w-3xl mx-auto text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-gray-900 dark:text-white">Transforming Communities Worldwide</h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-300">Since our founding in 2010, Hopeful Hearts has been dedicated to creating measurable, sustainable change in underserved communities. Through our focused programs in education, healthcare, economic development, and environmental sustainability, we've impacted thousands of lives across 15 countries.</p>
+                </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-teal-50 dark:bg-teal-900/20 rounded-xl p-6 text-center border border-teal-100 dark:border-teal-800">
+                        <div class="text-teal-500 w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-teal-100 dark:bg-teal-900/30 rounded-full">
+                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M240,94c0,30.6-17.7,62-52.6,93.4a334.34,334.34,0,0,1-51.5,37.6,8.1,8.1,0,0,1-7.8,0,334.34,334.34,0,0,1-51.5-37.6C33.7,156,16,124.6,16,94A62.07,62.07,0,0,1,78,32c20.65,0,38.73,8.88,50,23.89C139.27,40.88,157.35,32,178,32A62.07,62.07,0,0,1,240,94Z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Our Mission</h3>
+                        <p class="text-gray-600 dark:text-gray-300">To empower underserved communities through sustainable development programs that address root causes of poverty.</p>
+                    </div>
+                    
+                    <div class="bg-teal-50 dark:bg-teal-900/20 rounded-xl p-6 text-center border border-teal-100 dark:border-teal-800">
+                        <div class="text-teal-500 w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-teal-100 dark:bg-teal-900/30 rounded-full">
+                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm16-40a8,8,0,0,1-8,8,16,16,0,0,1-16-16V128a8,8,0,0,1,0-16,16,16,0,0,1,16,16v40A8,8,0,0,1,144,176Zm-32-92a12,12,0,1,1,12,12A12,12,0,0,1,112,84Z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Our Approach</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Community-led initiatives with measurable outcomes, transparency, and long-term sustainability.</p>
+                    </div>
+                    
+                    <div class="bg-teal-50 dark:bg-teal-900/20 rounded-xl p-6 text-center border border-teal-100 dark:border-teal-800">
+                        <div class="text-teal-500 w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-teal-100 dark:bg-teal-900/30 rounded-full">
+                            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M245.48,125.14a16,16,0,0,0-13-10.25L170,110.47l-23.27-55.43a16,16,0,0,0-29.44,0L86,110.47,23.53,114.89a16,16,0,0,0-9.19,28.07L66.3,173,51.65,229.52a16,16,0,0,0,23.84,17.34L128,212.41l52.51,34.45a16,16,0,0,0,23.84-17.34L189.7,173l51-30A16,16,0,0,0,245.48,125.14Z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Our Vision</h3>
+                        <p class="text-gray-600 dark:text-gray-300">A world where every community has the resources and opportunities to thrive independently.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- By the Numbers Section -->
+        <section class="py-16 lg:py-24 bg-teal-50 dark:bg-teal-900/20">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900 dark:text-white">By The Numbers</h2>
+                <p class="text-lg text-center text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">Our impact in numbers - measuring change across all our programs and initiatives.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
                     <div class="stat-card bg-white dark:bg-gray-800 rounded-xl p-6 text-center shadow-sm border border-teal-100 dark:border-teal-800">
                         <div class="text-teal-500 w-12 h-12 mx-auto mb-4 flex items-center justify-center bg-teal-100 dark:bg-teal-900/30 rounded-full">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
@@ -168,7 +266,7 @@
                             </svg>
                         </div>
                         <h3 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">25,000+</h3>
-                        <p class="text-gray-600 dark:text-gray-300">Lives Touched</p>
+                        <p class="text-gray-600 dark:text-gray-300">Lives Directly Impacted</p>
                     </div>
                     
                     <div class="stat-card bg-white dark:bg-gray-800 rounded-xl p-6 text-center shadow-sm border border-teal-100 dark:border-teal-800">
@@ -184,21 +282,371 @@
                     <div class="stat-card bg-white dark:bg-gray-800 rounded-xl p-6 text-center shadow-sm border border-teal-100 dark:border-teal-800">
                         <div class="text-teal-500 w-12 h-12 mx-auto mb-4 flex items-center justify-center bg-teal-100 dark:bg-teal-900/30 rounded-full">
                             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M230.33,141.06a24.34,24.34,0,0,0-18.61-4.77C230.5,117.33,240,98.48,240,80c0-26.47-21.29-48-47.46-48A47.58,47.58,0,0,0,156,48.75,47.58,47.58,0,0,0,119.46,32C93.29,32,72,53.53,72,80c0,11,3.24,21.69,10.06,33a31.87,31.87,0,0,0-14.75,8.4L44.69,144H16A16,16,0,0,0,0,160v40a16,16,0,0,0,16,16H120a7.93,7.93,0,0,0,1.94-.24l64-16a6.94,6.94,0,0,0,1.19-.4L226,182.82l.44-.2a24.6,24.6,0,0,0,3.93-41.56ZM119.46,48A31.15,31.15,0,0,1,148.6,67a8,8,0,0,0,14.8,0,31.15,31.15,0,0,1,29.14-19C209.59,48,224,62.65,224,80c0,19.51-15.79,41.58-45.66,63.9l-11.09,2.55A28,28,0,0,0,140,112H100.68C92.05,100.36,88,90.12,88,80,88,62.65,102.41,48,119.46,48ZM16,160H40v40H16Zm203.43,8.21-38,16.18L119,200H56V155.31l22.63-22.62A15.86,15.86,0,0,1,89.94,128H140a12,12,0,0,1,0,24H112a8,8,0,0,0,0,16h32a8.32,8.32,0,0,0,1.79-.2l67-15.41.31-.08a8.6,8.6,0,0,1,6.3,15.9Z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">98%</h3>
-                        <p class="text-gray-600 dark:text-gray-300">Donor Satisfaction</p>
-                    </div>
-                    
-                    <div class="stat-card bg-white dark:bg-gray-800 rounded-xl p-6 text-center shadow-sm border border-teal-100 dark:border-teal-800">
-                        <div class="text-teal-500 w-12 h-12 mx-auto mb-4 flex items-center justify-center bg-teal-100 dark:bg-teal-900/30 rounded-full">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M239.89,198.83a16,16,0,0,1-12.22,6.17H28.33a16,16,0,0,1-12.22-6.17,16.1,16.1,0,0,1-3.18-13l16-128A16,16,0,0,1,44.33,48H211.67a16,16,0,0,1,15.4,12.83l16,128A16.1,16.1,0,0,1,239.89,198.83ZM219.67,64H36.33L22.22,184H233.78ZM168,104a8,8,0,0,0,8-8V88a40,40,0,0,0-80,0v8a8,8,0,0,0,16,0V88a24,24,0,0,1,48,0v8A8,8,0,0,0,168,104Z"/>
                             </svg>
                         </div>
                         <h3 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">15</h3>
                         <p class="text-gray-600 dark:text-gray-300">Countries Reached</p>
+                    </div>
+                    
+                    <div class="stat-card bg-white dark:bg-gray-800 rounded-xl p-6 text-center shadow-sm border border-teal-100 dark:border-teal-800">
+                        <div class="text-teal-500 w-12 h-12 mx-auto mb-4 flex items-center justify-center bg-teal-100 dark:bg-teal-900/30 rounded-full">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M230.33,141.06a24.34,24.34,0,0,0-18.61-4.77C230.5,117.33,240,98.48,240,80c0-26.47-21.29-48-47.46-48A47.58,47.58,0,0,0,156,48.75,47.58,47.58,0,0,0,119.46,32C93.29,32,72,53.53,72,80c0,11,3.24,21.69,10.06,33a31.87,31.87,0,0,0-14.75,8.4L44.69,144H16A16,16,0,0,0,0,160v40a16,16,0,0,0,16,16H120a7.93,7.93,0,0,0,1.94-.24l64-16a6.94,6.94,0,0,0,1.19-.4L226,182.82l.44-.2a24.6,24.6,0,0,0,3.93-41.56Z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">98%</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Program Success Rate</p>
+                    </div>
+                </div>
+
+                <!-- Progress Visualizations -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-teal-100 dark:border-teal-800">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Education Program Reach</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Children Enrolled in Schools</span>
+                                    <span class="text-sm font-medium text-teal-600 dark:text-teal-400">5,200</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill bg-teal-500" style="width: 87%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Teachers Trained</span>
+                                    <span class="text-sm font-medium text-teal-600 dark:text-teal-400">340</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill bg-teal-500" style="width: 68%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Schools Built/Renovated</span>
+                                    <span class="text-sm font-medium text-teal-600 dark:text-teal-400">15</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill bg-teal-500" style="width: 75%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-teal-100 dark:border-teal-800">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Healthcare Initiatives</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Patients Treated</span>
+                                    <span class="text-sm font-medium text-teal-600 dark:text-teal-400">12,500</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill bg-teal-500" style="width: 83%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Vaccinations Administered</span>
+                                    <span class="text-sm font-medium text-teal-600 dark:text-teal-400">8,700</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill bg-teal-500" style="width: 72%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium text-gray-700 dark:text-gray-300">Medical Facilities Supported</span>
+                                    <span class="text-sm font-medium text-teal-600 dark:text-teal-400">22</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill bg-teal-500" style="width: 88%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Success Stories Section -->
+        <section class="py-16 lg:py-24 bg-white dark:bg-gray-800">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900 dark:text-white">Success Stories</h2>
+                <p class="text-lg text-center text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">Real stories of transformation from the communities we serve.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="story-card bg-teal-50 dark:bg-teal-900/20 rounded-xl overflow-hidden shadow-lg border border-teal-100 dark:border-teal-800">
+                        <div class="w-full h-48 bg-cover bg-center" style='background-image: url("https://images.unsplash.com/photo-1532634922-8fe0b757fb13?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80");'></div>
+                        <div class="p-6">
+                            <span class="inline-block px-3 py-1 bg-teal-100 dark:bg-teal-900/30 text-teal-800 dark:text-teal-200 text-xs font-semibold rounded-full mb-3">Education</span>
+                            <h3 class="font-bold text-xl mb-2 text-gray-900 dark:text-white">Maria's Journey to Education</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Maria, 12, is the first in her family to attend school regularly thanks to our education program in rural Guatemala.</p>
+                            <button class="text-teal-500 font-semibold text-sm hover:text-teal-600 transition-colors flex items-center">
+                                <span>Read Full Story</span>
+                                <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="story-card bg-teal-50 dark:bg-teal-900/20 rounded-xl overflow-hidden shadow-lg border border-teal-100 dark:border-teal-800">
+                        <div class="w-full h-48 bg-cover bg-center" style='background-image: url("https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80");'></div>
+                        <div class="p-6">
+                            <span class="inline-block px-3 py-1 bg-teal-100 dark:bg-teal-900/30 text-teal-800 dark:text-teal-200 text-xs font-semibold rounded-full mb-3">Healthcare</span>
+                            <h3 class="font-bold text-xl mb-2 text-gray-900 dark:text-white">A New Lease on Life</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">James recovered from a life-threatening illness thanks to our mobile clinic in remote Kenya.</p>
+                            <button class="text-teal-500 font-semibold text-sm hover:text-teal-600 transition-colors flex items-center">
+                                <span>Read Full Story</span>
+                                <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="story-card bg-teal-50 dark:bg-teal-900/20 rounded-xl overflow-hidden shadow-lg border border-teal-100 dark:border-teal-800">
+                        <div class="w-full h-48 bg-cover bg-center" style='background-image: url("https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80");'></div>
+                        <div class="p-6">
+                            <span class="inline-block px-3 py-1 bg-teal-100 dark:bg-teal-900/30 text-teal-800 dark:text-teal-200 text-xs font-semibold rounded-full mb-3">Economic Development</span>
+                            <h3 class="font-bold text-xl mb-2 text-gray-900 dark:text-white">From Farmer to Entrepreneur</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Lena transformed her small farm into a thriving business with our microloan and training program.</p>
+                            <button class="text-teal-500 font-semibold text-sm hover:text-teal-600 transition-colors flex items-center">
+                                <span>Read Full Story</span>
+                                <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Geographic Reach Section -->
+        <section class="py-16 lg:py-24 bg-teal-50 dark:bg-teal-900/20">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900 dark:text-white">Global Reach</h2>
+                <p class="text-lg text-center text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">Our programs span across 15 countries, creating impact where it's needed most.</p>
+                
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border border-teal-100 dark:border-teal-800 mb-12">
+                    <div class="map-container">
+                        <!-- Simplified world map with location points -->
+                        <div class="map-point" style="top: 30%; left: 25%;"></div>
+                        <div class="map-point" style="top: 35%; left: 45%;"></div>
+                        <div class="map-point" style="top: 40%; left: 55%;"></div>
+                        <div class="map-point" style="top: 50%; left: 70%;"></div>
+                        <div class="map-point" style="top: 60%; left: 50%;"></div>
+                        <div class="map-point" style="top: 65%; left: 35%;"></div>
+                        <div class="map-point" style="top: 55%; left: 20%;"></div>
+                        <div class="map-point" style="top: 45%; left: 15%;"></div>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-4 text-center shadow-sm border border-teal-100 dark:border-teal-800">
+                        <h3 class="font-bold text-gray-900 dark:text-white mb-2">Africa</h3>
+                        <p class="text-teal-600 dark:text-teal-400 font-semibold">7 Countries</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-4 text-center shadow-sm border border-teal-100 dark:border-teal-800">
+                        <h3 class="font-bold text-gray-900 dark:text-white mb-2">Asia</h3>
+                        <p class="text-teal-600 dark:text-teal-400 font-semibold">5 Countries</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-4 text-center shadow-sm border border-teal-100 dark:border-teal-800">
+                        <h3 class="font-bold text-gray-900 dark:text-white mb-2">Latin America</h3>
+                        <p class="text-teal-600 dark:text-teal-400 font-semibold">3 Countries</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-4 text-center shadow-sm border border-teal-100 dark:border-teal-800">
+                        <h3 class="font-bold text-gray-900 dark:text-white mb-2">Total Reach</h3>
+                        <p class="text-teal-600 dark:text-teal-400 font-semibold">15 Countries</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Program Outcomes Section -->
+        <section class="py-16 lg:py-24 bg-white dark:bg-gray-800">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900 dark:text-white">Program Outcomes</h2>
+                <p class="text-lg text-center text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">Measurable results from our key program areas over the last 5 years.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-teal-50 dark:bg-teal-900/20 rounded-xl p-6 border border-teal-100 dark:border-teal-800">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center">
+                            <svg class="w-6 h-6 mr-2 text-teal-500" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M251.76,88.94l-120-64a8,8,0,0,0-7.52,0l-120,64a8,8,0,0,0,0,14.12L32,117.87v48.42a15.91,15.91,0,0,0,4.06,10.65C49.16,191.53,78.51,216,128,216a130,130,0,0,0,48-8.76V240a8,8,0,0,0,16,0V199.51a115.63,115.63,0,0,0,27.94-22.57A15.91,15.91,0,0,0,224,166.29V117.87l27.76-14.81a8,8,0,0,0,0-14.12Z"/>
+                            </svg>
+                            Education
+                        </h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-teal-500 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/>
+                                </svg>
+                                <span class="text-gray-600 dark:text-gray-300">5,200+ children enrolled in schools</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-teal-500 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/>
+                                </svg>
+                                <span class="text-gray-600 dark:text-gray-300">340 teachers trained in modern pedagogy</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-teal-500 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/>
+                                </svg>
+                                <span class="text-gray-600 dark:text-gray-300">15 schools built or renovated</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-teal-500 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/>
+                                </svg>
+                                <span class="text-gray-600 dark:text-gray-300">92% student retention rate</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-teal-50 dark:bg-teal-900/20 rounded-xl p-6 border border-teal-100 dark:border-teal-800">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center">
+                            <svg class="w-6 h-6 mr-2 text-teal-500" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M240,94c0,30.6-17.7,62-52.6,93.4a334.34,334.34,0,0,1-51.5,37.6,8.1,8.1,0,0,1-7.8,0,334.34,334.34,0,0,1-51.5-37.6C33.7,156,16,124.6,16,94A62.07,62.07,0,0,1,78,32c20.65,0,38.73,8.88,50,23.89C139.27,40.88,157.35,32,178,32A62.07,62.07,0,0,1,240,94Z"/>
+                            </svg>
+                            Healthcare
+                        </h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-teal-500 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/>
+                                </svg>
+                                <span class="text-gray-600 dark:text-gray-300">12,500+ patients treated annually</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-teal-500 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/>
+                                </svg>
+                                <span class="text-gray-600 dark:text-gray-300">8,700+ vaccinations administered</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-teal-500 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/>
+                                </svg>
+                                <span class="text-gray-600 dark:text-gray-300">22 medical facilities supported</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-teal-500 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/>
+                                </svg>
+                                <span class="text-gray-600 dark:text-gray-300">45% reduction in child mortality</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Donor Impact Section -->
+        <section class="py-16 lg:py-24 bg-teal-50 dark:bg-teal-900/20">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900 dark:text-white">Your Impact</h2>
+                <p class="text-lg text-center text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">See how your contributions directly transform lives and communities.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-6 text-center shadow-sm border border-teal-100 dark:border-teal-800">
+                        <div class="text-4xl font-bold text-teal-600 dark:text-teal-400 mb-2">$50</div>
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-3">Provides school supplies</h3>
+                        <p class="text-gray-600 dark:text-gray-300">For 5 children for an entire school year</p>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-6 text-center shadow-sm border border-teal-100 dark:border-teal-800">
+                        <div class="text-4xl font-bold text-teal-600 dark:text-teal-400 mb-2">$100</div>
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-3">Supports health services</h3>
+                        <p class="text-gray-600 dark:text-gray-300">For 10 patients at our mobile clinics</p>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-6 text-center shadow-sm border border-teal-100 dark:border-teal-800">
+                        <div class="text-4xl font-bold text-teal-600 dark:text-teal-400 mb-2">$250</div>
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-3">Funds small business</h3>
+                        <p class="text-gray-600 dark:text-gray-300">Starter kit for an aspiring entrepreneur</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-sm border border-teal-100 dark:border-teal-800">
+                    <div class="max-w-3xl mx-auto text-center">
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Join Our Community of Changemakers</h3>
+                        <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">Your support enables us to continue our vital work in communities around the world. Together, we can create lasting change.</p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                            <button class="h-12 px-8 bg-teal-500 text-white font-bold rounded-lg text-base hover:bg-teal-600 transition-colors">
+                                <span>Donate Now</span>
+                            </button>
+                            <a href="contact.html" class="h-12 px-8 bg-white text-teal-500 font-bold rounded-lg text-base hover:bg-gray-100 transition-colors border border-teal-500 flex items-center justify-center">
+                                <span>Become a Partner</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Annual Reports Section -->
+        <section class="py-16 lg:py-24 bg-white dark:bg-gray-800">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900 dark:text-white">Annual Reports</h2>
+                <p class="text-lg text-center text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">Transparent documentation of our progress and financials year by year.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-teal-50 dark:bg-teal-900/20 rounded-xl p-6 text-center border border-teal-100 dark:border-teal-800">
+                        <div class="text-teal-500 w-12 h-12 mx-auto mb-4 flex items-center justify-center bg-teal-100 dark:bg-teal-900/30 rounded-full">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M224,48H176V40a24,24,0,0,0-24-24H104A24,24,0,0,0,80,40v8H32A16,16,0,0,0,16,64V200a16,16,0,0,0,16,16H224a16,16,0,0,0,16-16V64A16,16,0,0,0,224,48ZM96,40a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96ZM224,200H32V64H80v8a8,8,0,0,0,8,8h80a8,8,0,0,0,8-8V64h48ZM168,112a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,112Zm0,32a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,144Zm0,32a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,176Z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">2023 Report</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">Our most recent year of impact and growth</p>
+                        <button class="text-teal-500 font-semibold text-sm hover:text-teal-600 transition-colors">
+                            Download PDF
+                        </button>
+                    </div>
+                    
+                    <div class="bg-teal-50 dark:bg-teal-900/20 rounded-xl p-6 text-center border border-teal-100 dark:border-teal-800">
+                        <div class="text-teal-500 w-12 h-12 mx-auto mb-4 flex items-center justify-center bg-teal-100 dark:bg-teal-900/30 rounded-full">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M224,48H176V40a24,24,0,0,0-24-24H104A24,24,0,0,0,80,40v8H32A16,16,0,0,0,16,64V200a16,16,0,0,0,16,16H224a16,16,0,0,0,16-16V64A16,16,0,0,0,224,48ZM96,40a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96ZM224,200H32V64H80v8a8,8,0,0,0,8,8h80a8,8,0,0,0,8-8V64h48ZM168,112a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,112Zm0,32a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,144Zm0,32a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,176Z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">2022 Report</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">Expanding our reach to 3 new countries</p>
+                        <button class="text-teal-500 font-semibold text-sm hover:text-teal-600 transition-colors">
+                            Download PDF
+                        </button>
+                    </div>
+                    
+                    <div class="bg-teal-50 dark:bg-teal-900/20 rounded-xl p-6 text-center border border-teal-100 dark:border-teal-800">
+                        <div class="text-teal-500 w-12 h-12 mx-auto mb-4 flex items-center justify-center bg-teal-100 dark:bg-teal-900/30 rounded-full">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M224,48H176V40a24,24,0,0,0-24-24H104A24,24,0,0,0,80,40v8H32A16,16,0,0,0,16,64V200a16,16,0,0,0,16,16H224a16,16,0,0,0,16-16V64A16,16,0,0,0,224,48ZM96,40a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96ZM224,200H32V64H80v8a8,8,0,0,0,8,8h80a8,8,0,0,0,8-8V64h48ZM168,112a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,112Zm0,32a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,144Zm0,32a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,176Z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">2021 Report</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">Navigating challenges, creating opportunities</p>
+                        <button class="text-teal-500 font-semibold text-sm hover:text-teal-600 transition-colors">
+                            Download PDF
+                        </button>
+                    </div>
+                    
+                    <div class="bg-teal-50 dark:bg-teal-900/20 rounded-xl p-6 text-center border border-teal-100 dark:border-teal-800">
+                        <div class="text-teal-500 w-12 h-12 mx-auto mb-4 flex items-center justify-center bg-teal-100 dark:bg-teal-900/30 rounded-full">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M224,48H176V40a24,24,0,0,0-24-24H104A24,24,0,0,0,80,40v8H32A16,16,0,0,0,16,64V200a16,16,0,0,0,16,16H224a16,16,0,0,0,16-16V64A16,16,0,0,0,224,48ZM96,40a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96ZM224,200H32V64H80v8a8,8,0,0,0,8,8h80a8,8,0,0,0,8-8V64h48ZM168,112a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,112Zm0,32a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,144Zm0,32a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,176Z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">2020 Report</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">A decade of impact - 10 year anniversary</p>
+                        <button class="text-teal-500 font-semibold text-sm hover:text-teal-600 transition-colors">
+                            Download PDF
+                        </button>
                     </div>
                 </div>
             </div>
@@ -216,7 +664,7 @@
                                 <path d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z" fill="currentColor"/>
                             </svg>
                         </div>
-                        <h2 class="text-xl font-bold">Ashmay Charity</h2>
+                        <h2 class="text-xl font-bold">Hopeful Hearts</h2>
                     </div>
                     <p class="text-gray-400 mb-6 max-w-md">We are dedicated to creating sustainable change in underserved communities through education, healthcare, and economic development initiatives.</p>
                     <div class="flex gap-4">
@@ -246,28 +694,28 @@
                 <div>
                     <h3 class="font-bold text-lg mb-4">Quick Links</h3>
                     <ul class="space-y-2">
-                        <li><a class="text-gray-400 hover:text-teal-400 transition-colors" href="index.html#home">Home</a></li>
-                        <li><a class="text-gray-400 hover:text-teal-400 transition-colors" href="about.html#about">About Us</a></li>
-                        <li><a class="text-gray-400 hover:text-teal-400 transition-colors" href="#impact">Our Impact</a></li>
-                        <li><a class="text-gray-400 hover:text-teal-400 transition-colors" href="work.html#work">Our Work</a></li>
-                        <li><a class="text-gray-400 hover:text-teal-400 transition-colors" href="projects.html#projects">Projects</a></li>
+                        <li><a class="text-gray-400 hover:text-teal-400 transition-colors" href="index.html">Home</a></li>
+                        <li><a class="text-gray-400 hover:text-teal-400 transition-colors" href="about.html">About Us</a></li>
+                        <li><a class="text-gray-400 hover:text-teal-400 transition-colors" href="impact.html">Our Impact</a></li>
+                        <li><a class="text-gray-400 hover:text-teal-400 transition-colors" href="work.html">Our Work</a></li>
+                        <li><a class="text-gray-400 hover:text-teal-400 transition-colors" href="projects.html">Projects</a></li>
                     </ul>
                 </div>
                 
                 <div>
                     <h3 class="font-bold text-lg mb-4">Get Involved</h3>
                     <ul class="space-y-2">
-                        <li><a class="text-gray-400 hover:text-teal-400 transition-colors" href="join.html#join">Donate</a></li>
-                        <li><a class="text-gray-400 hover:text-teal-400 transition-colors" href="join.html#join">Volunteer</a></li>
-                        <li><a class="text-gray-400 hover:text-teal-400 transition-colors" href="join.html#join">Partner With Us</a></li>
-                        <li><a class="text-gray-400 hover:text-teal-400 transition-colors" href="contact.html#contact">Contact Us</a></li>
+                        <li><a class="text-gray-400 hover:text-teal-400 transition-colors" href="join.html">Donate</a></li>
+                        <li><a class="text-gray-400 hover:text-teal-400 transition-colors" href="join.html">Volunteer</a></li>
+                        <li><a class="text-gray-400 hover:text-teal-400 transition-colors" href="join.html">Partner With Us</a></li>
+                        <li><a class="text-gray-400 hover:text-teal-400 transition-colors" href="contact.html">Contact Us</a></li>
                         <li><a class="text-gray-400 hover:text-teal-400 transition-colors" href="#">Careers</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 text-sm">© 2024 Ashmay Charity. All rights reserved.</p>
+                <p class="text-gray-400 text-sm">© 2024 Hopeful Hearts. All rights reserved.</p>
                 <div class="flex gap-6 mt-4 md:mt-0">
                     <a class="text-gray-400 hover:text-teal-400 transition-colors text-sm" href="#">Privacy Policy</a>
                     <a class="text-gray-400 hover:text-teal-400 transition-colors text-sm" href="#">Terms of Service</a>
@@ -314,6 +762,21 @@
                 header.classList.remove('shadow-lg');
             }
         });
+
+        // Animate progress bars on scroll
+        function animateProgressBars() {
+            const progressBars = document.querySelectorAll('.progress-fill');
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 300);
+            });
+        }
+
+        // Initialize progress bars when page loads
+        window.addEventListener('load', animateProgressBars);
     </script>
 </body>
 </html>
