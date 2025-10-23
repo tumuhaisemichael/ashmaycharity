@@ -177,33 +177,421 @@
             </div>
         </section>
 
-        <!-- Project Tabs Navigation -->
-        <section class="py-8 bg-white dark:bg-gray-800 border-b border-teal-100 dark:border-teal-800 sticky top-16 z-40">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex overflow-x-auto scrollbar-hide">
-                    <div class="flex space-x-1">
-                        <button class="project-tab-btn px-4 py-2 rounded-lg font-medium transition-colors bg-teal-500 text-white" data-tab="current">
-                            Current Projects
-                        </button>
-                        <button class="project-tab-btn px-4 py-2 rounded-lg font-medium transition-colors text-gray-700 dark:text-gray-300 hover:bg-teal-50 dark:hover:bg-teal-900/20" data-tab="completed">
-                            Completed Projects
-                        </button>
-                        <button class="project-tab-btn px-4 py-2 rounded-lg font-medium transition-colors text-gray-700 dark:text-gray-300 hover:bg-teal-50 dark:hover:bg-teal-900/20" data-tab="upcoming">
-                            Upcoming Projects
-                        </button>
-                        <button class="project-tab-btn px-4 py-2 rounded-lg font-medium transition-colors text-gray-700 dark:text-gray-300 hover:bg-teal-50 dark:hover:bg-teal-900/20" data-tab="gallery">
-                            Project Gallery
-                        </button>
-                        <button class="project-tab-btn px-4 py-2 rounded-lg font-medium transition-colors text-gray-700 dark:text-gray-300 hover:bg-teal-50 dark:hover:bg-teal-900/20" data-tab="volunteer">
-                            Volunteer Opportunities
-                        </button>
-                        <button class="project-tab-btn px-4 py-2 rounded-lg font-medium transition-colors text-gray-700 dark:text-gray-300 hover:bg-teal-50 dark:hover:bg-teal-900/20" data-tab="funding">
-                            Funding Needs
-                        </button>
+<!-- Project Tabs Navigation -->
+<section class="py-6 bg-white/90 dark:bg-gray-800/90 backdrop-blur-lg border-b border-teal-100/50 dark:border-teal-800/50 sticky top-16 z-40">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Mobile Dropdown (Hidden on desktop) -->
+        <div class="lg:hidden relative">
+            <select class="w-full px-4 py-3 rounded-xl border border-teal-200 dark:border-teal-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white font-medium focus:ring-2 focus:ring-teal-500 focus:border-teal-500 transition-all duration-200 appearance-none cursor-pointer" id="mobile-project-select">
+                <option value="current" selected>📊 Current Projects</option>
+                <option value="completed">✅ Completed Projects</option>
+                <option value="upcoming">📅 Upcoming Projects</option>
+                <option value="gallery">🖼️ Project Gallery</option>
+                <option value="volunteer">👥 Volunteer Opportunities</option>
+                <option value="funding">💰 Funding Needs</option>
+            </select>
+            <div class="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-600 dark:text-gray-400">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Desktop Two-Row Navigation (Hidden on mobile) -->
+        <div class="hidden lg:block">
+            <!-- Top Row -->
+            <div class="flex justify-center gap-3 mb-3">
+                <!-- Current Projects -->
+                <button class="project-tab-btn group relative px-6 py-4 rounded-2xl font-semibold text-sm transition-all duration-300 ease-out bg-gradient-to-br from-teal-500 to-teal-600 text-white shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 flex items-center gap-3 min-w-[180px] justify-center border-2 border-teal-500" data-tab="current">
+                    <div class="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center backdrop-blur-sm">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <span>Current Projects</span>
+                </button>
+
+                <!-- Completed Projects -->
+                <button class="project-tab-btn group relative px-6 py-4 rounded-2xl font-semibold text-sm transition-all duration-300 ease-out bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 shadow-md hover:shadow-lg hover:scale-105 active:scale-95 flex items-center gap-3 min-w-[180px] justify-center border-2 border-green-200 dark:border-green-700 hover:border-green-300 dark:hover:border-green-600" data-tab="completed">
+                    <div class="w-8 h-8 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center text-green-600 dark:text-green-400">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <span>Completed</span>
+                </button>
+
+                <!-- Upcoming Projects -->
+                <button class="project-tab-btn group relative px-6 py-4 rounded-2xl font-semibold text-sm transition-all duration-300 ease-out bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 shadow-md hover:shadow-lg hover:scale-105 active:scale-95 flex items-center gap-3 min-w-[180px] justify-center border-2 border-blue-200 dark:border-blue-700 hover:border-blue-300 dark:hover:border-blue-600" data-tab="upcoming">
+                    <div class="w-8 h-8 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center text-blue-600 dark:text-blue-400">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <span>Upcoming</span>
+                </button>
+            </div>
+
+            <!-- Bottom Row -->
+            <div class="flex justify-center gap-3">
+                <!-- Project Gallery -->
+                <button class="project-tab-btn group relative px-6 py-4 rounded-2xl font-semibold text-sm transition-all duration-300 ease-out bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 shadow-md hover:shadow-lg hover:scale-105 active:scale-95 flex items-center gap-3 min-w-[180px] justify-center border-2 border-purple-200 dark:border-purple-700 hover:border-purple-300 dark:hover:border-purple-600" data-tab="gallery">
+                    <div class="w-8 h-8 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center text-purple-600 dark:text-purple-400">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <span>Project Gallery</span>
+                </button>
+
+                <!-- Volunteer Opportunities -->
+                <button class="project-tab-btn group relative px-6 py-4 rounded-2xl font-semibold text-sm transition-all duration-300 ease-out bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 shadow-md hover:shadow-lg hover:scale-105 active:scale-95 flex items-center gap-3 min-w-[180px] justify-center border-2 border-orange-200 dark:border-orange-700 hover:border-orange-300 dark:hover:border-orange-600" data-tab="volunteer">
+                    <div class="w-8 h-8 bg-orange-100 dark:bg-orange-900/30 rounded-lg flex items-center justify-center text-orange-600 dark:text-orange-400">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <span>Volunteer</span>
+                </button>
+
+                <!-- Funding Needs -->
+                <button class="project-tab-btn group relative px-6 py-4 rounded-2xl font-semibold text-sm transition-all duration-300 ease-out bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 shadow-md hover:shadow-lg hover:scale-105 active:scale-95 flex items-center gap-3 min-w-[180px] justify-center border-2 border-red-200 dark:border-red-700 hover:border-red-300 dark:hover:border-red-600" data-tab="funding">
+                    <div class="w-8 h-8 bg-red-100 dark:bg-red-900/30 rounded-lg flex items-center justify-center text-red-600 dark:text-red-400">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <span>Funding Needs</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Tablet/Mid-size View (2 columns, 3 rows) -->
+        <div class="hidden md:block lg:hidden">
+            <div class="grid grid-cols-2 gap-3">
+                <button class="project-tab-btn group relative px-4 py-3 rounded-xl font-semibold text-sm transition-all duration-300 ease-out bg-gradient-to-br from-teal-500 to-teal-600 text-white shadow-lg hover:shadow-xl flex items-center gap-2 justify-center border-2 border-teal-500" data-tab="current">
+                    <div class="w-6 h-6 bg-white/20 rounded flex items-center justify-center">
+                        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <span>Current</span>
+                </button>
+
+                <button class="project-tab-btn group relative px-4 py-3 rounded-xl font-semibold text-sm transition-all duration-300 ease-out bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 shadow-md flex items-center gap-2 justify-center border-2 border-green-200 dark:border-green-700" data-tab="completed">
+                    <div class="w-6 h-6 bg-green-100 dark:bg-green-900/30 rounded flex items-center justify-center text-green-600 dark:text-green-400">
+                        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <span>Completed</span>
+                </button>
+
+                <button class="project-tab-btn group relative px-4 py-3 rounded-xl font-semibold text-sm transition-all duration-300 ease-out bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 shadow-md flex items-center gap-2 justify-center border-2 border-blue-200 dark:border-blue-700" data-tab="upcoming">
+                    <div class="w-6 h-6 bg-blue-100 dark:bg-blue-900/30 rounded flex items-center justify-center text-blue-600 dark:text-blue-400">
+                        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <span>Upcoming</span>
+                </button>
+
+                <button class="project-tab-btn group relative px-4 py-3 rounded-xl font-semibold text-sm transition-all duration-300 ease-out bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 shadow-md flex items-center gap-2 justify-center border-2 border-purple-200 dark:border-purple-700" data-tab="gallery">
+                    <div class="w-6 h-6 bg-purple-100 dark:bg-purple-900/30 rounded flex items-center justify-center text-purple-600 dark:text-purple-400">
+                        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <span>Gallery</span>
+                </button>
+
+                <button class="project-tab-btn group relative px-4 py-3 rounded-xl font-semibold text-sm transition-all duration-300 ease-out bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 shadow-md flex items-center gap-2 justify-center border-2 border-orange-200 dark:border-orange-700" data-tab="volunteer">
+                    <div class="w-6 h-6 bg-orange-100 dark:bg-orange-900/30 rounded flex items-center justify-center text-orange-600 dark:text-orange-400">
+                        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <span>Volunteer</span>
+                </button>
+
+                <button class="project-tab-btn group relative px-4 py-3 rounded-xl font-semibold text-sm transition-all duration-300 ease-out bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 shadow-md flex items-center gap-2 justify-center border-2 border-red-200 dark:border-red-700" data-tab="funding">
+                    <div class="w-6 h-6 bg-red-100 dark:bg-red-900/30 rounded flex items-center justify-center text-red-600 dark:text-red-400">
+                        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <span>Funding</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ADD THIS CONTENT SECTION BELOW THE NAVIGATION -->
+<div id="project-content">
+    <!-- Current Projects Content -->
+    <div id="current-content" class="project-content-section active">
+        <div class="container mx-auto px-4 py-8">
+            <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">Current Projects</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border border-teal-100 dark:border-teal-800">
+                    <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">School Construction in Kenya</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">Building a new primary school facility to serve 500+ students in rural Kenya.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-teal-600 dark:text-teal-400 font-semibold">75% Complete</span>
+                        <span class="text-sm text-gray-500">Target: Dec 2024</span>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border border-teal-100 dark:border-teal-800">
+                    <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">Healthcare Center in Bangladesh</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">Establishing a community healthcare center with vaccination programs.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-teal-600 dark:text-teal-400 font-semibold">60% Complete</span>
+                        <span class="text-sm text-gray-500">Target: Nov 2024</span>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </div>
+
+    <!-- Completed Projects Content -->
+    <div id="completed-content" class="project-content-section">
+        <div class="container mx-auto px-4 py-8">
+            <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">Completed Projects</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border border-green-100 dark:border-green-800">
+                    <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">Clean Water Initiative - Haiti</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">Installed clean water systems serving 3,000+ people across 5 communities.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-green-600 dark:text-green-400 font-semibold">✅ Completed</span>
+                        <span class="text-sm text-gray-500">June 2024</span>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border border-green-100 dark:border-green-800">
+                    <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">Teacher Training - India</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">Trained 150 teachers in modern educational methodologies.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-green-600 dark:text-green-400 font-semibold">✅ Completed</span>
+                        <span class="text-sm text-gray-500">April 2024</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Upcoming Projects Content -->
+    <div id="upcoming-content" class="project-content-section">
+        <div class="container mx-auto px-4 py-8">
+            <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">Upcoming Projects</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border border-blue-100 dark:border-blue-800">
+                    <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">Agricultural Training - Ethiopia</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">Sustainable farming techniques training for 200+ local farmers.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-blue-600 dark:text-blue-400 font-semibold">Starting Jan 2025</span>
+                        <span class="text-sm text-gray-500">Planning Phase</span>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border border-blue-100 dark:border-blue-800">
+                    <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">Digital Literacy - Peru</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">Computer skills training program for youth in remote communities.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-blue-600 dark:text-blue-400 font-semibold">Starting Feb 2025</span>
+                        <span class="text-sm text-gray-500">Funding Phase</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Gallery Content -->
+    <div id="gallery-content" class="project-content-section">
+        <div class="container mx-auto px-4 py-8">
+            <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">Project Gallery</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div class="bg-gray-200 dark:bg-gray-700 rounded-lg h-48 flex items-center justify-center">
+                    <span class="text-gray-500">Project Image 1</span>
+                </div>
+                <div class="bg-gray-200 dark:bg-gray-700 rounded-lg h-48 flex items-center justify-center">
+                    <span class="text-gray-500">Project Image 2</span>
+                </div>
+                <div class="bg-gray-200 dark:bg-gray-700 rounded-lg h-48 flex items-center justify-center">
+                    <span class="text-gray-500">Project Image 3</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Volunteer Opportunities Content -->
+    <div id="volunteer-content" class="project-content-section">
+        <div class="container mx-auto px-4 py-8">
+            <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">Volunteer Opportunities</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border border-orange-100 dark:border-orange-800">
+                    <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">Education Volunteers</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">Help teach English and basic computer skills in rural communities.</p>
+                    <button class="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-lg transition-colors">Apply Now</button>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border border-orange-100 dark:border-orange-800">
+                    <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">Medical Volunteers</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">Healthcare professionals needed for mobile clinics.</p>
+                    <button class="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 rounded-lg transition-colors">Apply Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Funding Needs Content -->
+    <div id="funding-content" class="project-content-section">
+        <div class="container mx-auto px-4 py-8">
+            <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">Funding Needs</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border border-red-100 dark:border-red-800">
+                    <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">School Supplies Fund</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">Provide books and learning materials for 1,000 students.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-red-600 dark:text-red-400 font-semibold">$25,000 Needed</span>
+                        <button class="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-lg text-sm transition-colors">Donate</button>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border border-red-100 dark:border-red-800">
+                    <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">Medical Equipment</h3>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">Essential medical equipment for new healthcare centers.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm text-red-600 dark:text-red-400 font-semibold">$50,000 Needed</span>
+                        <button class="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-lg text-sm transition-colors">Donate</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Active state styles */
+    .project-tab-btn.active {
+        transform: scale(1.05);
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    }
+
+    .project-tab-btn.active:not([data-tab="current"]) {
+        background: linear-gradient(135deg, rgb(20 184 166), rgb(13 148 136));
+        color: white;
+        border-color: rgb(20 184 166);
+    }
+
+    .project-tab-btn.active:not([data-tab="current"]) div {
+        background: rgba(255, 255, 255, 0.2) !important;
+        color: white !important;
+    }
+
+    /* Hover effects */
+    .project-tab-btn:not(.active):hover {
+        transform: translateY(-2px);
+    }
+
+    /* Content section styles */
+    .project-content-section {
+        display: none;
+    }
+
+    .project-content-section.active {
+        display: block;
+        animation: fadeIn 0.5s ease-in;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Mobile select styling */
+    select {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+        background-position: right 0.5rem center;
+        background-repeat: no-repeat;
+        background-size: 1.5em 1.5em;
+        padding-right: 2.5rem;
+    }
+
+    .dark select {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%239ca3af' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const tabButtons = document.querySelectorAll('.project-tab-btn');
+        const mobileSelect = document.getElementById('mobile-project-select');
+        const contentSections = document.querySelectorAll('.project-content-section');
+        let activeTab = 'current';
+
+        function setActiveTab(tabName) {
+            activeTab = tabName;
+            
+            // Update all button states
+            tabButtons.forEach(btn => {
+                if (btn.dataset.tab === tabName) {
+                    btn.classList.add('active');
+                    // Apply active styles for non-current tabs
+                    if (tabName !== 'current') {
+                        btn.style.background = 'linear-gradient(135deg, rgb(20 184 166), rgb(13 148 136))';
+                        btn.style.color = 'white';
+                        btn.style.borderColor = 'rgb(20 184 166)';
+                    }
+                } else {
+                    btn.classList.remove('active');
+                    // Reset styles for inactive buttons
+                    if (btn.dataset.tab !== 'current') {
+                        btn.style.background = '';
+                        btn.style.color = '';
+                        btn.style.borderColor = '';
+                    }
+                }
+            });
+
+            // Update mobile select
+            if (mobileSelect) {
+                mobileSelect.value = tabName;
+            }
+
+            // Update content sections
+            contentSections.forEach(section => {
+                section.classList.remove('active');
+                if (section.id === `${tabName}-content`) {
+                    section.classList.add('active');
+                }
+            });
+
+            // Dispatch custom event for tab change
+            window.dispatchEvent(new CustomEvent('projectTabChange', {
+                detail: { tab: tabName }
+            }));
+        }
+
+        // Desktop and tablet button events
+        tabButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                setActiveTab(this.dataset.tab);
+            });
+        });
+
+        // Mobile select event
+        if (mobileSelect) {
+            mobileSelect.addEventListener('change', function() {
+                setActiveTab(this.value);
+            });
+
+            // Also add input event for better mobile support
+            mobileSelect.addEventListener('input', function() {
+                setActiveTab(this.value);
+            });
+        }
+
+        // Initialize first tab as active
+        setActiveTab('current');
+    });
+</script>
 
         <!-- Current Projects -->
         <section id="current" class="tab-content active py-16 lg:py-24 bg-background-light dark:bg-background-dark">
