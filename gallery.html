@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Projects - Ashmay Charity</title>
+    <title>Gallery - Ashmay Charity</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
         tailwind.config = {
             theme: {
@@ -65,56 +65,52 @@
         }
     </script>
     <style>
-        .project-card {
+        .gallery-item {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .project-card:hover {
+        .gallery-item:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
         .mobile-menu {
             transition: all 0.3s ease;
         }
-        .progress-bar {
-            height: 8px;
-            border-radius: 4px;
+        
+        /* Toggle Switch */
+        .toggle-container {
+            display: flex;
             background-color: #e5e7eb;
-            overflow: hidden;
-        }
-        .progress-fill {
-            height: 100%;
-            border-radius: 4px;
-            transition: width 0.5s ease-in-out;
-        }
-        .status-badge {
-            display: inline-flex;
-            align-items: center;
-            padding: 0.25rem 0.75rem;
-            border-radius: 9999px;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-        .status-active {
-            background-color: #d1fae5;
-            color: #065f46;
-        }
-        .status-completed {
-            background-color: #dbeafe;
-            color: #1e40af;
-        }
-        .status-planning {
-            background-color: #fef3c7;
-            color: #92400e;
+            border-radius: 50px;
+            padding: 4px;
+            width: fit-content;
+            margin: 0 auto;
         }
         
-        /* Project Detail Overlay */
-        .project-overlay {
+        .toggle-option {
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .toggle-option.active {
+            background-color: #14b8a6;
+            color: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Lightbox Overlay */
+        .lightbox-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: rgba(0, 0, 0, 0.9);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -124,117 +120,138 @@
             transition: all 0.3s ease;
         }
         
-        .project-overlay.active {
+        .lightbox-overlay.active {
             opacity: 1;
             visibility: visible;
         }
         
-        .project-detail {
-            background-color: white;
-            border-radius: 12px;
-            width: 90%;
-            max-width: 800px;
-            max-height: 90vh;
-            overflow-y: auto;
+        .lightbox-content {
             position: relative;
-            transform: translateY(20px);
-            transition: transform 0.3s ease;
+            max-width: 90%;
+            max-height: 90%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         
-        .project-overlay.active .project-detail {
-            transform: translateY(0);
+        .lightbox-media {
+            max-width: 100%;
+            max-height: 80vh;
+            border-radius: 8px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
         }
         
-        .close-btn {
+        .lightbox-description {
+            color: white;
+            text-align: center;
+            margin-top: 20px;
+            max-width: 600px;
+            padding: 0 20px;
+        }
+        
+        .lightbox-close {
             position: absolute;
-            top: 15px;
-            right: 15px;
+            top: -50px;
+            right: 0;
             background: none;
             border: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: #6b7280;
-            z-index: 10;
-        }
-        
-        .close-btn:hover {
-            color: #374151;
-        }
-        
-        .project-detail-header {
-            background: linear-gradient(135deg, #0d9488, #14b8a6);
             color: white;
-            padding: 2rem;
-            border-radius: 12px 12px 0 0;
-            position: relative;
+            font-size: 30px;
+            cursor: pointer;
+            transition: color 0.3s ease;
         }
         
-        .project-detail-content {
-            padding: 2rem;
+        .lightbox-close:hover {
+            color: #14b8a6;
         }
         
-        .project-detail-section {
-            margin-bottom: 2rem;
-        }
-        
-        .project-detail-section h3 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: #1f2937;
-            border-bottom: 2px solid #e5e7eb;
-            padding-bottom: 0.5rem;
-        }
-        
-        .project-detail-section p {
-            color: #6b7280;
-            line-height: 1.6;
-        }
-        
-        .project-stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-        
-        .stat-item {
-            background-color: #f9fafb;
-            border-radius: 8px;
-            padding: 1rem;
-            text-align: center;
-        }
-        
-        .stat-value {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #0d9488;
-        }
-        
-        .stat-label {
-            font-size: 0.875rem;
-            color: #6b7280;
-            margin-top: 0.25rem;
-        }
-        
-        .action-buttons {
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
             display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 20px;
         }
         
+        .lightbox-nav:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .lightbox-prev {
+            left: 20px;
+        }
+        
+        .lightbox-next {
+            right: 20px;
+        }
+        
+        .video-play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(20, 184, 166, 0.8);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+            transition: all 0.3s ease;
+        }
+        
+        .video-item:hover .video-play-icon {
+            background: rgba(20, 184, 166, 1);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        
+        /* Animation for gallery items */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .gallery-item {
+            animation: fadeInUp 0.5s ease forwards;
+        }
+        
+        /* Responsive adjustments */
         @media (max-width: 768px) {
-            .project-detail {
-                width: 95%;
+            .toggle-option {
+                padding: 8px 16px;
+                font-size: 14px;
             }
             
-            .project-detail-header,
-            .project-detail-content {
-                padding: 1.5rem;
+            .lightbox-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
             }
             
-            .action-buttons {
-                flex-direction: column;
+            .lightbox-prev {
+                left: 10px;
+            }
+            
+            .lightbox-next {
+                right: 10px;
             }
         }
     </style>
@@ -528,8 +545,8 @@
 
 
     <main>
-        <!-- Projects Hero Section -->
-        <section class="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-teal-500 via-teal-600 to-teal-700">
+        <!-- Gallery Hero Section -->
+        <section class="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-teal-500 via-teal-600 to-teal-700">
             <!-- Animated Background Elements -->
             <div class="absolute inset-0">
                 <!-- Floating Shapes with Delayed Animations -->
@@ -551,33 +568,20 @@
                     <!-- Animated Page Badge -->
                     <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-6 animate-fade-up">
                         <div class="w-1.5 h-1.5 bg-teal-200 rounded-full animate-pulse"></div>
-                        <span class="text-teal-100 text-sm font-medium tracking-wider">OUR INITIATIVES</span>
+                        <span class="text-teal-100 text-sm font-medium tracking-wider">VISUAL IMPACT</span>
                     </div>
 
                     <!-- Animated Main Heading -->
                     <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 animate-fade-up animation-delay-200">
                         <span class="bg-gradient-to-r from-white to-teal-100 bg-clip-text text-transparent animate-text-glow">
-                            Our Projects
+                            Our Gallery
                         </span>
                     </h1>
 
                     <!-- Animated Subheading -->
                     <p class="text-xl md:text-2xl text-teal-100 font-light mb-8 max-w-2xl mx-auto leading-relaxed animate-fade-up animation-delay-400">
-                        Discover our ongoing initiatives and completed successes that are creating meaningful impact in communities worldwide.
+                        Explore the visual story of our impact through photos and videos from our projects around the world.
                     </p>
-
-                    <!-- Animated CTA Buttons -->
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up animation-delay-600">
-                        <a href="#projects" class="group relative overflow-hidden inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white px-6 py-3 rounded-full font-medium hover:bg-white/20 transition-all duration-500 hover:scale-105 hover:shadow-lg">
-                            <span class="relative z-10">View All Projects</span>
-                            <svg class="w-4 h-4 relative z-10 group-hover:translate-x-1 transition-transform duration-300" fill="currentColor" viewBox="0 0 256 256">
-                                <path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/>
-                            </svg>
-                        </a>
-                        <a href="#get-involved" class="group relative overflow-hidden inline-flex items-center gap-2 bg-white text-teal-600 px-6 py-3 rounded-full font-medium hover:bg-teal-50 transition-all duration-500 hover:scale-105 hover:shadow-lg">
-                            <span class="relative z-10">Get Involved</span>
-                        </a>
-                    </div>
                 </div>
             </div>
 
@@ -592,163 +596,219 @@
             </div>
         </section>
 
-        <!-- Projects Section -->
-        <section id="projects" class="py-16 lg:py-24 bg-background-light dark:bg-background-dark">
+        <!-- Gallery Content Section -->
+        <section class="py-16 lg:py-20 bg-background-light dark:bg-background-dark">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900 dark:text-white">Making a Difference Together</h2>
-                    <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                        Each project represents our commitment to creating sustainable change in underserved communities through targeted initiatives.
-                    </p>
+                <!-- Toggle Switch -->
+                <div class="flex justify-center mb-12">
+                    <div class="toggle-container">
+                        <div class="toggle-option active" id="toggle-photos">
+                            <i class="fas fa-camera"></i>
+                            <span>Photos</span>
+                        </div>
+                        <div class="toggle-option" id="toggle-videos">
+                            <i class="fas fa-video"></i>
+                            <span>Videos</span>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Project 1 -->
-                    <div class="project-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg border border-teal-100 dark:border-teal-800">
-                        <div class="w-full h-48 bg-cover bg-center" style='background-image: url("https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80");'></div>
-                        <div class="p-6">
-                            <div class="flex justify-between items-start mb-4">
-                                <span class="inline-block px-3 py-1 bg-teal-100 dark:bg-teal-900/30 text-teal-800 dark:text-teal-200 text-xs font-semibold rounded-full">Education</span>
-                                <span class="status-badge status-active">Active</span>
-                            </div>
-                            <h3 class="font-bold text-xl mb-2 text-gray-900 dark:text-white">Rural School Construction</h3>
-                            <p class="text-gray-600 dark:text-gray-300 mb-4">Building schools in remote villages to provide education access to children who currently have no formal schooling opportunities.</p>
-                            
-                            <div class="mb-4">
-                                <div class="flex justify-between text-sm text-gray-600 dark:text-gray-400 mb-1">
-                                    <span>Progress</span>
-                                    <span>65%</span>
+                <!-- Photos Gallery -->
+                <div id="photos-gallery" class="gallery-section active">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                        <!-- Photo 1 -->
+                        <div class="gallery-item photo-item relative overflow-hidden rounded-xl shadow-lg cursor-pointer group" data-index="0">
+                            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                 alt="School children in Kenya" 
+                                 class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                                <div class="text-white">
+                                    <h3 class="font-bold">Education in Kenya</h3>
+                                    <p class="text-sm opacity-90">Students at our newly built school in rural Kenya</p>
                                 </div>
-                                <div class="progress-bar">
-                                    <div class="progress-fill bg-teal-500" style="width: 65%"></div>
-                                </div>
-                            </div>
-                            
-                            <div class="flex justify-between text-sm mb-6">
-                                <div>
-                                    <p class="font-medium text-gray-900 dark:text-white">$48,500</p>
-                                    <p class="text-gray-500 dark:text-gray-400">Raised of $75,000</p>
-                                </div>
-                                <div>
-                                    <p class="font-medium text-gray-900 dark:text-white">3 months</p>
-                                    <p class="text-gray-500 dark:text-gray-400">Remaining</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex flex-col sm:flex-row gap-3">
-                                <button class="flex-1 h-10 bg-teal-500 text-white font-semibold rounded-lg hover:bg-teal-600 transition-colors">
-                                    Donate Now
-                                </button>
-                                <button class="learn-more-btn flex-1 h-10 border border-teal-500 text-teal-500 font-semibold rounded-lg hover:bg-teal-50 dark:hover:bg-teal-900/20 transition-colors" data-project="1">
-                                    Learn More
-                                </button>
                             </div>
                         </div>
-                    </div>
-                    
-                    <!-- Project 2 -->
-                    <div class="project-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg border border-teal-100 dark:border-teal-800">
-                        <div class="w-full h-48 bg-cover bg-center" style='background-image: url("https://images.unsplash.com/photo-1576765608622-2e96d3a6cbb1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80");'></div>
-                        <div class="p-6">
-                            <div class="flex justify-between items-start mb-4">
-                                <span class="inline-block px-3 py-1 bg-teal-100 dark:bg-teal-900/30 text-teal-800 dark:text-teal-200 text-xs font-semibold rounded-full">Healthcare</span>
-                                <span class="status-badge status-active">Active</span>
-                            </div>
-                            <h3 class="font-bold text-xl mb-2 text-gray-900 dark:text-white">Mobile Health Clinics</h3>
-                            <p class="text-gray-600 dark:text-gray-300 mb-4">Deploying mobile medical units to provide essential healthcare services to remote communities with limited access to medical facilities.</p>
-                            
-                            <div class="mb-4">
-                                <div class="flex justify-between text-sm text-gray-600 dark:text-gray-400 mb-1">
-                                    <span>Progress</span>
-                                    <span>42%</span>
+                        
+                        <!-- Photo 2 -->
+                        <div class="gallery-item photo-item relative overflow-hidden rounded-xl shadow-lg cursor-pointer group" data-index="1">
+                            <img src="https://images.unsplash.com/photo-1576765608622-2e96d3a6cbb1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Medical camp in Bangladesh" 
+                                 class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                                <div class="text-white">
+                                    <h3 class="font-bold">Healthcare Outreach</h3>
+                                    <p class="text-sm opacity-90">Mobile medical camp serving remote communities in Bangladesh</p>
                                 </div>
-                                <div class="progress-bar">
-                                    <div class="progress-fill bg-teal-500" style="width: 42%"></div>
-                                </div>
-                            </div>
-                            
-                            <div class="flex justify-between text-sm mb-6">
-                                <div>
-                                    <p class="font-medium text-gray-900 dark:text-white">$63,200</p>
-                                    <p class="text-gray-500 dark:text-gray-400">Raised of $150,000</p>
-                                </div>
-                                <div>
-                                    <p class="font-medium text-gray-900 dark:text-white">6 months</p>
-                                    <p class="text-gray-500 dark:text-gray-400">Remaining</p>
-                                </div>
-                            </div>
-                            
-                            <div class="flex flex-col sm:flex-row gap-3">
-                                <button class="flex-1 h-10 bg-teal-500 text-white font-semibold rounded-lg hover:bg-teal-600 transition-colors">
-                                    Donate Now
-                                </button>
-                                <button class="learn-more-btn flex-1 h-10 border border-teal-500 text-teal-500 font-semibold rounded-lg hover:bg-teal-50 dark:hover:bg-teal-900/20 transition-colors" data-project="2">
-                                    Learn More
-                                </button>
                             </div>
                         </div>
-                    </div>
-                    
-                    <!-- Project 3 -->
-                    <div class="project-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg border border-teal-100 dark:border-teal-800">
-                        <div class="w-full h-48 bg-cover bg-center" style='background-image: url("https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80");'></div>
-                        <div class="p-6">
-                            <div class="flex justify-between items-start mb-4">
-                                <span class="inline-block px-3 py-1 bg-teal-100 dark:bg-teal-900/30 text-teal-800 dark:text-teal-200 text-xs font-semibold rounded-full">Economic Development</span>
-                                <span class="status-badge status-completed">Completed</span>
-                            </div>
-                            <h3 class="font-bold text-xl mb-2 text-gray-900 dark:text-white">Women's Entrepreneurship</h3>
-                            <p class="text-gray-600 dark:text-gray-300 mb-4">Trained 500 women in business skills and provided microloans to launch 300 small businesses.</p>
-                            
-                            <div class="mb-4">
-                                <div class="flex justify-between text-sm text-gray-600 dark:text-gray-400 mb-1">
-                                    <span>Impact</span>
-                                    <span>100%</span>
-                                </div>
-                                <div class="progress-bar">
-                                    <div class="progress-fill bg-blue-500" style="width: 100%"></div>
+                        
+                        <!-- Photo 3 -->
+                        <div class="gallery-item photo-item relative overflow-hidden rounded-xl shadow-lg cursor-pointer group" data-index="2">
+                            <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Women entrepreneurship training" 
+                                 class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                                <div class="text-white">
+                                    <h3 class="font-bold">Women's Empowerment</h3>
+                                    <p class="text-sm opacity-90">Business skills training for women entrepreneurs</p>
                                 </div>
                             </div>
-                            
-                            <div class="flex justify-between text-sm mb-6">
-                                <div>
-                                    <p class="font-medium text-gray-900 dark:text-white">300</p>
-                                    <p class="text-gray-500 dark:text-gray-400">Businesses Launched</p>
-                                </div>
-                                <div>
-                                    <p class="font-medium text-gray-900 dark:text-white">500</p>
-                                    <p class="text-gray-500 dark:text-gray-400">Women Trained</p>
+                        </div>
+                        
+                        <!-- Photo 4 -->
+                        <div class="gallery-item photo-item relative overflow-hidden rounded-xl shadow-lg cursor-pointer group" data-index="3">
+                            <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Clean water project" 
+                                 class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                                <div class="text-white">
+                                    <h3 class="font-bold">Clean Water Initiative</h3>
+                                    <p class="text-sm opacity-90">Installing water purification systems in rural communities</p>
                                 </div>
                             </div>
-                            
-                            <div class="flex flex-col sm:flex-row gap-3">
-                                <button class="flex-1 h-10 bg-teal-500 text-white font-semibold rounded-lg hover:bg-teal-600 transition-colors">
-                                    Support Similar
-                                </button>
-                                <button class="learn-more-btn flex-1 h-10 border border-teal-500 text-teal-500 font-semibold rounded-lg hover:bg-teal-50 dark:hover:bg-teal-900/20 transition-colors" data-project="3">
-                                    View Impact
-                                </button>
+                        </div>
+                        
+                        <!-- Photo 5 -->
+                        <div class="gallery-item photo-item relative overflow-hidden rounded-xl shadow-lg cursor-pointer group" data-index="4">
+                            <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Digital learning center" 
+                                 class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                                <div class="text-white">
+                                    <h3 class="font-bold">Digital Education</h3>
+                                    <p class="text-sm opacity-90">Students at our digital learning center in Peru</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Photo 6 -->
+                        <div class="gallery-item photo-item relative overflow-hidden rounded-xl shadow-lg cursor-pointer group" data-index="5">
+                            <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Medical team in field" 
+                                 class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                                <div class="text-white">
+                                    <h3 class="font-bold">Field Medical Team</h3>
+                                    <p class="text-sm opacity-90">Our medical team providing care in remote areas</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Photo 7 -->
+                        <div class="gallery-item photo-item relative overflow-hidden rounded-xl shadow-lg cursor-pointer group" data-index="6">
+                            <img src="https://images.unsplash.com/photo-1551833993-1d0ee4c0b837?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Community gathering" 
+                                 class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                                <div class="text-white">
+                                    <h3 class="font-bold">Community Engagement</h3>
+                                    <p class="text-sm opacity-90">Community meeting at a newly built school facility</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Photo 8 -->
+                        <div class="gallery-item photo-item relative overflow-hidden rounded-xl shadow-lg cursor-pointer group" data-index="7">
+                            <img src="https://images.unsplash.com/photo-1576669801947-92ead4d276f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                 alt="Agricultural training" 
+                                 class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                                <div class="text-white">
+                                    <h3 class="font-bold">Agricultural Development</h3>
+                                    <p class="text-sm opacity-90">Training farmers in sustainable agricultural techniques</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <div class="text-center mt-16">
-                    <button class="h-12 px-8 bg-teal-500 text-white font-semibold rounded-lg hover:bg-teal-600 transition-colors">
-                        Load More Projects
-                    </button>
+                <!-- Videos Gallery -->
+                <div id="videos-gallery" class="gallery-section hidden">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Video 1 -->
+                        <div class="gallery-item video-item relative overflow-hidden rounded-xl shadow-lg cursor-pointer group" data-index="0">
+                            <div class="w-full h-64 bg-gray-800 flex items-center justify-center relative">
+                                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                     alt="Education in Kenya video thumbnail" 
+                                     class="w-full h-full object-cover opacity-70">
+                                <div class="video-play-icon">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                                <div class="text-white">
+                                    <h3 class="font-bold">Education Transformation</h3>
+                                    <p class="text-sm opacity-90">See how our school construction project is changing lives in Kenya</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Video 2 -->
+                        <div class="gallery-item video-item relative overflow-hidden rounded-xl shadow-lg cursor-pointer group" data-index="1">
+                            <div class="w-full h-64 bg-gray-800 flex items-center justify-center relative">
+                                <img src="https://images.unsplash.com/photo-1576765608622-2e96d3a6cbb1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                     alt="Healthcare in Bangladesh video thumbnail" 
+                                     class="w-full h-full object-cover opacity-70">
+                                <div class="video-play-icon">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                                <div class="text-white">
+                                    <h3 class="font-bold">Mobile Health Clinics</h3>
+                                    <p class="text-sm opacity-90">A day in the life of our mobile medical teams in Bangladesh</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Video 3 -->
+                        <div class="gallery-item video-item relative overflow-hidden rounded-xl shadow-lg cursor-pointer group" data-index="2">
+                            <div class="w-full h-64 bg-gray-800 flex items-center justify-center relative">
+                                <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                     alt="Women empowerment video thumbnail" 
+                                     class="w-full h-full object-cover opacity-70">
+                                <div class="video-play-icon">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                                <div class="text-white">
+                                    <h3 class="font-bold">Women's Success Stories</h3>
+                                    <p class="text-sm opacity-90">Hear from women whose lives have been transformed through our programs</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Video 4 -->
+                        <div class="gallery-item video-item relative overflow-hidden rounded-xl shadow-lg cursor-pointer group" data-index="3">
+                            <div class="w-full h-64 bg-gray-800 flex items-center justify-center relative">
+                                <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                                     alt="Clean water project video thumbnail" 
+                                     class="w-full h-full object-cover opacity-70">
+                                <div class="video-play-icon">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                                <div class="text-white">
+                                    <h3 class="font-bold">Clean Water Impact</h3>
+                                    <p class="text-sm opacity-90">Documentary on how clean water is transforming communities</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- CTA Section -->
-        <section id="get-involved" class="py-16 lg:py-24 text-center bg-teal-500 text-white">
+        <section class="py-16 lg:py-20 text-center bg-teal-500 text-white">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
-                <h2 class="text-3xl md:text-4xl font-black tracking-tight mb-4">Ready to Make an Impact?</h2>
-                <p class="text-lg md:text-xl mb-8 opacity-90">Your support can help us complete these projects and create lasting change in communities.</p>
+                <h2 class="text-3xl md:text-4xl font-black tracking-tight mb-4">Want to See More?</h2>
+                <p class="text-lg md:text-xl mb-8 opacity-90">Follow us on social media for regular updates from our projects around the world.</p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <button class="h-12 px-8 bg-white text-teal-500 font-bold rounded-lg text-base hover:bg-gray-100 transition-colors">
-                        <span>Donate Now</span>
+                        <span>Follow on Instagram</span>
                     </button>
                     <a href="contact.html" class="h-12 px-8 bg-teal-600 text-white font-bold rounded-lg text-base hover:bg-teal-700 transition-colors flex items-center justify-center">
                         <span>Contact Us</span>
@@ -758,81 +818,24 @@
         </section>
     </main>
 
-    <!-- Project Detail Overlay -->
-    <div id="project-overlay" class="project-overlay">
-        <div class="project-detail">
-            <button class="close-btn" id="close-overlay">&times;</button>
-            
-            <div class="project-detail-header">
-                <div class="flex justify-between items-start">
-                    <div>
-                        <span class="inline-block px-3 py-1 bg-white/20 text-white text-xs font-semibold rounded-full mb-2" id="detail-category">Education</span>
-                        <h2 id="detail-title" class="text-2xl md:text-3xl font-bold mb-2">Rural School Construction</h2>
-                        <p id="detail-status" class="text-teal-100">Active Project</p>
-                    </div>
-                    <span class="status-badge bg-white/20 text-white" id="detail-status-badge">Active</span>
-                </div>
-            </div>
-            
-            <div class="project-detail-content">
-                <div class="project-detail-section">
-                    <h3>Project Overview</h3>
-                    <p id="detail-overview">Building schools in remote villages to provide education access to children who currently have no formal schooling opportunities. This initiative focuses on constructing sustainable, safe learning environments with proper facilities.</p>
-                </div>
-                
-                <div class="project-detail-section">
-                    <h3>Objectives</h3>
-                    <ul class="list-disc pl-5 text-gray-600 space-y-2" id="detail-objectives">
-                        <li>Construct 5 school buildings in remote villages</li>
-                        <li>Provide education access to 500+ children</li>
-                        <li>Train 20 local teachers</li>
-                        <li>Establish sustainable maintenance programs</li>
-                    </ul>
-                </div>
-                
-                <div class="project-detail-section">
-                    <h3>Impact & Results</h3>
-                    <div class="project-stats">
-                        <div class="stat-item">
-                            <div class="stat-value" id="stat-1">65%</div>
-                            <div class="stat-label">Completion</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value" id="stat-2">$48.5K</div>
-                            <div class="stat-label">Raised</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value" id="stat-3">3</div>
-                            <div class="stat-label">Schools Built</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-value" id="stat-4">320</div>
-                            <div class="stat-label">Children Enrolled</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-detail-section">
-                    <h3>Timeline</h3>
-                    <p id="detail-timeline">Project started in January 2024 with an estimated completion date of December 2024. Currently in the construction phase with 3 of 5 schools operational.</p>
-                </div>
-                
-                <div class="project-detail-section">
-                    <h3>Partners</h3>
-                    <p id="detail-partners">This project is implemented in partnership with local education departments, community leaders, and international education foundations.</p>
-                </div>
-                
-                <div class="action-buttons">
-                    <button class="flex-1 h-12 bg-teal-500 text-white font-semibold rounded-lg hover:bg-teal-600 transition-colors">
-                        Donate to This Project
-                    </button>
-                    <button id="download-pdf" class="flex-1 h-12 border border-teal-500 text-teal-500 font-semibold rounded-lg hover:bg-teal-50 transition-colors flex items-center justify-center gap-2">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                        </svg>
-                        Download PDF
-                    </button>
-                </div>
+    <!-- Lightbox Overlay -->
+    <div id="lightbox-overlay" class="lightbox-overlay">
+        <button class="lightbox-close" id="lightbox-close">&times;</button>
+        <button class="lightbox-nav lightbox-prev" id="lightbox-prev">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="lightbox-nav lightbox-next" id="lightbox-next">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        
+        <div class="lightbox-content">
+            <img id="lightbox-image" src="" alt="" class="lightbox-media hidden">
+            <video id="lightbox-video" controls class="lightbox-media hidden">
+                Your browser does not support the video tag.
+            </video>
+            <div class="lightbox-description">
+                <h3 id="lightbox-title" class="text-xl font-bold mb-2"></h3>
+                <p id="lightbox-desc"></p>
             </div>
         </div>
     </div>
@@ -853,24 +856,16 @@
                     <p class="text-gray-400 mb-6 max-w-md">We are dedicated to creating sustainable change in underserved communities through education, healthcare, and economic development initiatives.</p>
                     <div class="flex gap-4">
                         <a class="text-gray-400 hover:text-teal-400 transition-colors" href="#">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"/>
-                            </svg>
+                            <i class="fab fa-instagram text-lg"></i>
                         </a>
                         <a class="text-gray-400 hover:text-teal-400 transition-colors" href="#">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M247.39,68.94A8,8,0,0,0,240,64H209.57A48.66,48.66,0,0,0,168.1,40a46.91,46.91,0,0,0-33.75,13.7A47.9,47.9,0,0,0,120,88v6.09C79.74,83.47,46.81,50.72,46.46,50.37a8,8,0,0,0-13.65,4.92c-4.31,47.79,9.57,79.77,22,98.18a110.93,110.93,0,0,0,21.88,24.2c-15.23,17.53-39.21,26.74-39.47,26.84a8,8,0,0,0-3.85,11.93c.75,1.12,3.75,5.05,11.08,8.72C53.51,229.7,65.48,232,80,232c70.67,0,129.72-54.42,135.75-124.44l29.91-29.9A8,8,0,0,0,247.39,68.94Zm-45,29.41a8,8,0,0,0-2.32,5.14C196,166.58,143.28,216,80,216c-10.56,0-18-1.4-23.22-3.08,11.51-6.25,27.56-17,37.88-32.48A8,8,0,0,0,92,169.08c-.47-.27-43.91-26.34-44-96,16,13,45.25,33.17,78.67,38.79A8,8,0,0,0,136,104V88a32,32,0,0,1,9.6-22.92A30.94,30.94,0,0,1,167.9,56c12.66.16,24.49,7.88,29.44,19.21A8,8,0,0,0,204.67,80h16Z"/>
-                            </svg>
+                            <i class="fab fa-facebook text-lg"></i>
                         </a>
                         <a class="text-gray-400 hover:text-teal-400 transition-colors" href="#">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm8,191.63V152h24a8,8,0,0,0,0-16H136V112a16,16,0,0,1,16-16h16a8,8,0,0,0,0-16H152a32,32,0,0,0-32,32v24H96a8,8,0,0,0,0,16h24v63.63a88,88,0,1,1,16,0Z"/>
-                            </svg>
+                            <i class="fab fa-twitter text-lg"></i>
                         </a>
                         <a class="text-gray-400 hover:text-teal-400 transition-colors" href="#">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M216,72H176V64a40,40,0,0,0-40-40H120A40,40,0,0,0,80,64v8H40A16,16,0,0,0,24,88V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V88A16,16,0,0,0,216,72ZM96,64a24,24,0,0,1,24-24h16a24,24,0,0,1,24,24v8H96ZM216,200H40V88H80h96H216ZM112,120v48a8,8,0,0,1-16,0V120a8,8,0,0,1,16,0Zm48,0v48a8,8,0,0,1-16,0V120a8,8,0,0,1,16,0Z"/>
-                            </svg>
+                            <i class="fab fa-youtube text-lg"></i>
                         </a>
                     </div>
                 </div>
@@ -880,9 +875,10 @@
                     <ul class="space-y-2">
                         <li><a class="text-gray-400 hover:text-teal-400 transition-colors" href="index.html">Home</a></li>
                         <li><a class="text-gray-400 hover:text-teal-400 transition-colors" href="about.html">About Us</a></li>
-                        <li><a class="text-gray-400 hover:text-teal-400 transition-colors" href="impact.html">Our Impact</a></li>
+                        <li><a class="text-gray-400 hover:text-teal-400 transition-colors" href="impact.html">Impact</a></li>
                         <li><a class="text-gray-400 hover:text-teal-400 transition-colors" href="work.html">Our Work</a></li>
                         <li><a class="text-gray-400 hover:text-teal-400 transition-colors" href="projects.html">Projects</a></li>
+                        <li><a class="text-gray-400 hover:text-teal-400 transition-colors" href="gallery.html">Gallery</a></li>
                     </ul>
                 </div>
                 
@@ -916,196 +912,193 @@
             menu.classList.toggle('hidden');
         });
 
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    // Close mobile menu if open
-                    document.getElementById('mobile-menu').classList.add('hidden');
-                    
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 100,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Add scroll effect to navbar
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.classList.add('shadow-lg');
-            } else {
-                header.classList.remove('shadow-lg');
-            }
-        });
-
-        // Project detail overlay functionality
-        const overlay = document.getElementById('project-overlay');
-        const closeBtn = document.getElementById('close-overlay');
-        const learnMoreBtns = document.querySelectorAll('.learn-more-btn');
-        const downloadPdfBtn = document.getElementById('download-pdf');
+        // Gallery toggle functionality
+        const togglePhotos = document.getElementById('toggle-photos');
+        const toggleVideos = document.getElementById('toggle-videos');
+        const photosGallery = document.getElementById('photos-gallery');
+        const videosGallery = document.getElementById('videos-gallery');
         
-        // Project data
-        const projects = {
-            1: {
-                category: "Education",
-                title: "Rural School Construction",
-                status: "Active",
-                overview: "Building schools in remote villages to provide education access to children who currently have no formal schooling opportunities. This initiative focuses on constructing sustainable, safe learning environments with proper facilities.",
-                objectives: [
-                    "Construct 5 school buildings in remote villages",
-                    "Provide education access to 500+ children",
-                    "Train 20 local teachers",
-                    "Establish sustainable maintenance programs"
-                ],
-                stats: {
-                    stat1: "65%",
-                    stat2: "$48.5K",
-                    stat3: "3",
-                    stat4: "320"
-                },
-                timeline: "Project started in January 2024 with an estimated completion date of December 2024. Currently in the construction phase with 3 of 5 schools operational.",
-                partners: "This project is implemented in partnership with local education departments, community leaders, and international education foundations."
+        togglePhotos.addEventListener('click', function() {
+            togglePhotos.classList.add('active');
+            toggleVideos.classList.remove('active');
+            photosGallery.classList.remove('hidden');
+            photosGallery.classList.add('active');
+            videosGallery.classList.add('hidden');
+            videosGallery.classList.remove('active');
+        });
+        
+        toggleVideos.addEventListener('click', function() {
+            toggleVideos.classList.add('active');
+            togglePhotos.classList.remove('active');
+            videosGallery.classList.remove('hidden');
+            videosGallery.classList.add('active');
+            photosGallery.classList.add('hidden');
+            photosGallery.classList.remove('active');
+        });
+        
+        // Lightbox functionality
+        const lightboxOverlay = document.getElementById('lightbox-overlay');
+        const lightboxClose = document.getElementById('lightbox-close');
+        const lightboxPrev = document.getElementById('lightbox-prev');
+        const lightboxNext = document.getElementById('lightbox-next');
+        const lightboxImage = document.getElementById('lightbox-image');
+        const lightboxVideo = document.getElementById('lightbox-video');
+        const lightboxTitle = document.getElementById('lightbox-title');
+        const lightboxDesc = document.getElementById('lightbox-desc');
+        
+        // Photo data
+        const photos = [
+            {
+                src: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
+                title: "Education in Kenya",
+                description: "Students at our newly built school in rural Kenya. This school now serves over 500 children who previously had no access to formal education."
             },
-            2: {
-                category: "Healthcare",
+            {
+                src: "https://images.unsplash.com/photo-1576765608622-2e96d3a6cbb1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
+                title: "Healthcare Outreach",
+                description: "Our mobile medical camp serving remote communities in Bangladesh. We've provided healthcare services to over 10,000 people through these initiatives."
+            },
+            {
+                src: "https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
+                title: "Women's Empowerment",
+                description: "Business skills training for women entrepreneurs. Over 300 women have launched successful small businesses through our programs."
+            },
+            {
+                src: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
+                title: "Clean Water Initiative",
+                description: "Installing water purification systems in rural communities. These systems now provide clean drinking water to over 15,000 people."
+            },
+            {
+                src: "https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
+                title: "Digital Education",
+                description: "Students at our digital learning center in Peru. We've established 10 centers that provide computer skills training to underserved youth."
+            },
+            {
+                src: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
+                title: "Field Medical Team",
+                description: "Our medical team providing care in remote areas. These dedicated professionals travel to communities with limited access to healthcare facilities."
+            },
+            {
+                src: "https://images.unsplash.com/photo-1551833993-1d0ee4c0b837?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
+                title: "Community Engagement",
+                description: "Community meeting at a newly built school facility. We work closely with local communities to ensure our projects meet their specific needs."
+            },
+            {
+                src: "https://images.unsplash.com/photo-1576669801947-92ead4d276f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
+                title: "Agricultural Development",
+                description: "Training farmers in sustainable agricultural techniques. Our programs have helped increase crop yields by 40% in participating communities."
+            }
+        ];
+        
+        // Video data
+        const videos = [
+            {
+                src: "https://player.vimeo.com/video/76979871?h=8272103f6e",
+                title: "Education Transformation",
+                description: "See how our school construction project is changing lives in Kenya. This video documents the journey from groundbreaking to the first day of classes."
+            },
+            {
+                src: "https://player.vimeo.com/video/139707837?h=0e8c9fe3e5",
                 title: "Mobile Health Clinics",
-                status: "Active",
-                overview: "Deploying mobile medical units to provide essential healthcare services to remote communities with limited access to medical facilities. Each clinic is equipped with basic medical supplies, diagnostic tools, and staffed by qualified healthcare professionals.",
-                objectives: [
-                    "Establish 10 mobile health clinics in remote areas",
-                    "Provide healthcare services to 5,000+ people annually",
-                    "Conduct vaccination drives for children and pregnant women",
-                    "Train community health workers"
-                ],
-                stats: {
-                    stat1: "42%",
-                    stat2: "$63.2K",
-                    stat3: "4",
-                    stat4: "1,850"
-                },
-                timeline: "Launched in March 2024 with an expected completion in September 2024. Currently operating 4 clinics with 6 more in development.",
-                partners: "Implemented with support from local health departments, international medical NGOs, and corporate healthcare partners."
+                description: "A day in the life of our mobile medical teams in Bangladesh. Follow our healthcare workers as they bring essential services to remote communities."
             },
-            3: {
-                category: "Economic Development",
-                title: "Women's Entrepreneurship",
-                status: "Completed",
-                overview: "Empowering women through business skills training and micro-loans to launch sustainable small businesses. This initiative focuses on creating economic independence and community leadership among women in underserved areas.",
-                objectives: [
-                    "Train 500 women in business and financial skills",
-                    "Provide microloans to 300 women entrepreneurs",
-                    "Establish 5 women-led business cooperatives",
-                    "Create sustainable income sources for 1,000+ family members"
-                ],
-                stats: {
-                    stat1: "100%",
-                    stat2: "300",
-                    stat3: "500",
-                    stat4: "1,200"
-                },
-                timeline: "Successfully completed in June 2023 after 18 months of implementation. All targets were met or exceeded.",
-                partners: "Collaborated with local women's organizations, microfinance institutions, and international development agencies."
+            {
+                src: "https://player.vimeo.com/video/1084537?h=1c58d96a0f",
+                title: "Women's Success Stories",
+                description: "Hear from women whose lives have been transformed through our programs. These inspiring stories showcase the power of economic empowerment."
+            },
+            {
+                src: "https://player.vimeo.com/video/139707837?h=0e8c9fe3e5",
+                title: "Clean Water Impact",
+                description: "Documentary on how clean water is transforming communities. This film explores the profound health and economic benefits of access to safe drinking water."
             }
-        };
+        ];
         
-        // Open overlay when Learn More is clicked
-        learnMoreBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
-                const projectId = this.getAttribute('data-project');
-                const project = projects[projectId];
-                
-                // Update overlay content
-                document.getElementById('detail-category').textContent = project.category;
-                document.getElementById('detail-title').textContent = project.title;
-                document.getElementById('detail-status').textContent = project.status + " Project";
-                document.getElementById('detail-status-badge').textContent = project.status;
-                document.getElementById('detail-overview').textContent = project.overview;
-                
-                // Update objectives list
-                const objectivesList = document.getElementById('detail-objectives');
-                objectivesList.innerHTML = '';
-                project.objectives.forEach(obj => {
-                    const li = document.createElement('li');
-                    li.textContent = obj;
-                    objectivesList.appendChild(li);
-                });
-                
-                // Update stats
-                document.getElementById('stat-1').textContent = project.stats.stat1;
-                document.getElementById('stat-2').textContent = project.stats.stat2;
-                document.getElementById('stat-3').textContent = project.stats.stat3;
-                document.getElementById('stat-4').textContent = project.stats.stat4;
-                
-                document.getElementById('detail-timeline').textContent = project.timeline;
-                document.getElementById('detail-partners').textContent = project.partners;
-                
-                // Show overlay
-                overlay.classList.add('active');
-                document.body.style.overflow = 'hidden'; // Prevent scrolling
+        let currentMediaType = 'photo'; // 'photo' or 'video'
+        let currentIndex = 0;
+        
+        // Open lightbox for photos
+        document.querySelectorAll('.photo-item').forEach((item, index) => {
+            item.addEventListener('click', function() {
+                currentMediaType = 'photo';
+                currentIndex = index;
+                openLightbox();
             });
         });
         
-        // Close overlay
-        closeBtn.addEventListener('click', function() {
-            overlay.classList.remove('active');
-            document.body.style.overflow = 'auto'; // Re-enable scrolling
+        // Open lightbox for videos
+        document.querySelectorAll('.video-item').forEach((item, index) => {
+            item.addEventListener('click', function() {
+                currentMediaType = 'video';
+                currentIndex = index;
+                openLightbox();
+            });
         });
         
-        // Close overlay when clicking outside content
-        overlay.addEventListener('click', function(e) {
-            if (e.target === overlay) {
-                overlay.classList.remove('active');
-                document.body.style.overflow = 'auto';
+        function openLightbox() {
+            if (currentMediaType === 'photo') {
+                lightboxImage.src = photos[currentIndex].src;
+                lightboxImage.alt = photos[currentIndex].title;
+                lightboxTitle.textContent = photos[currentIndex].title;
+                lightboxDesc.textContent = photos[currentIndex].description;
+                
+                lightboxImage.classList.remove('hidden');
+                lightboxVideo.classList.add('hidden');
+                lightboxVideo.pause();
+            } else {
+                // For demo purposes, we're using Vimeo embed URLs
+                // In a real implementation, you would use your actual video URLs
+                lightboxVideo.src = videos[currentIndex].src;
+                lightboxTitle.textContent = videos[currentIndex].title;
+                lightboxDesc.textContent = videos[currentIndex].description;
+                
+                lightboxVideo.classList.remove('hidden');
+                lightboxImage.classList.add('hidden');
+                lightboxVideo.play();
+            }
+            
+            lightboxOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeLightbox() {
+            lightboxOverlay.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            lightboxVideo.pause();
+        }
+        
+        function navigateLightbox(direction) {
+            if (currentMediaType === 'photo') {
+                currentIndex = (currentIndex + direction + photos.length) % photos.length;
+            } else {
+                currentIndex = (currentIndex + direction + videos.length) % videos.length;
+            }
+            openLightbox();
+        }
+        
+        // Event listeners for lightbox controls
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightboxPrev.addEventListener('click', () => navigateLightbox(-1));
+        lightboxNext.addEventListener('click', () => navigateLightbox(1));
+        
+        // Close lightbox when clicking outside content
+        lightboxOverlay.addEventListener('click', function(e) {
+            if (e.target === lightboxOverlay) {
+                closeLightbox();
             }
         });
         
-        // PDF download functionality
-        downloadPdfBtn.addEventListener('click', function() {
-            // Get project details
-            const title = document.getElementById('detail-title').textContent;
-            const category = document.getElementById('detail-category').textContent;
-            const status = document.getElementById('detail-status').textContent;
-            const overview = document.getElementById('detail-overview').textContent;
-            
-            // Create PDF
-            const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
-            
-            // Add content to PDF
-            doc.setFontSize(20);
-            doc.setTextColor(13, 148, 136); // Teal color
-            doc.text(title, 20, 30);
-            
-            doc.setFontSize(12);
-            doc.setTextColor(100, 100, 100);
-            doc.text(`Category: ${category}`, 20, 50);
-            doc.text(`Status: ${status}`, 20, 60);
-            
-            doc.setFontSize(14);
-            doc.setTextColor(0, 0, 0);
-            doc.text('Project Overview', 20, 80);
-            
-            doc.setFontSize(10);
-            const splitOverview = doc.splitTextToSize(overview, 170);
-            doc.text(splitOverview, 20, 90);
-            
-            // Add Ashmay Charity footer
-            doc.setFontSize(8);
-            doc.setTextColor(150, 150, 150);
-            doc.text('Ashmay Charity - Creating Sustainable Change', 105, 280, { align: 'center' });
-            doc.text('Generated on: ' + new Date().toLocaleDateString(), 105, 285, { align: 'center' });
-            
-            // Save the PDF
-            doc.save(`Ashmay_Charity_${title.replace(/\s+/g, '_')}.pdf`);
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (lightboxOverlay.classList.contains('active')) {
+                if (e.key === 'Escape') {
+                    closeLightbox();
+                } else if (e.key === 'ArrowLeft') {
+                    navigateLightbox(-1);
+                } else if (e.key === 'ArrowRight') {
+                    navigateLightbox(1);
+                }
+            }
         });
     </script>
 </body>

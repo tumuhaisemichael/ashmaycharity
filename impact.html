@@ -134,6 +134,7 @@
 <body class="bg-background-light dark:bg-background-dark font-sans text-gray-800 dark:text-gray-200">
     <!-- Header/Navigation -->
     <!-- Header/Navigation -->
+
 <header class="sticky top-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border-b border-teal-200 dark:border-teal-800 shadow-sm">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16 lg:h-20">
@@ -222,24 +223,13 @@
                     </div>
                 </div>
 
-                <!-- Projects Dropdown -->
-                <div class="relative group">
-                    <button class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors flex items-center gap-1">
-                        Projects
-                        <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"/>
-                        </svg>
-                    </button>
-                    <div class="absolute top-full left-0 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-teal-100 dark:border-teal-800 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
-                        <div class="py-2">
-                            <a href="projects.html#current" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-teal-50 dark:hover:bg-teal-900/20 hover:text-teal-500 transition-colors">Current Projects</a>
-                            <a href="projects.html#completed" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-teal-50 dark:hover:bg-teal-900/20 hover:text-teal-500 transition-colors">Completed Projects</a>
-                            <a href="projects.html#upcoming" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-teal-50 dark:hover:bg-teal-900/20 hover:text-teal-500 transition-colors">Upcoming Projects</a>
-                            <a href="projects.html#gallery" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-teal-50 dark:hover:bg-teal-900/20 hover:text-teal-500 transition-colors">Project Gallery</a>
-                        </div>
-                    </div>
-                </div>
+                <!-- Projects Link (No Dropdown) -->
+                <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors" href="projects.html">Projects</a>
 
+                <!-- Gallery Link -->
+                <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors" href="gallery.html">Gallery</a>
+
+                <!-- Contact Link -->
                 <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors" href="contact.html">Contact</a>
             </nav>
 
@@ -274,7 +264,7 @@
                     <div class="mobile-dropdown-content hidden pl-4 mt-2 space-y-2">
                         <a href="index.html#about" class="block text-sm text-gray-600 dark:text-gray-400 hover:text-teal-500 transition-colors py-1">About Preview</a>
                         <a href="index.html#impact" class="block text-sm text-gray-600 dark:text-gray-400 hover:text-teal-500 transition-colors py-1">Impact Statistics</a>
-                        <a href="index.html#area" class="block text-sm text-gray-600 dark:text-gray-400 hover:text-teal-500 transition-colors py-1">Focous Area</a>
+                        <a href="index.html#area" class="block text-sm text-gray-600 dark:text-gray-400 hover:text-teal-500 transition-colors py-1">Focus Area</a>
                         <a href="index.html#project" class="block text-sm text-gray-600 dark:text-gray-400 hover:text-teal-500 transition-colors py-1">Featured Projects</a>
                         <a href="index.html#testimonial" class="block text-sm text-gray-600 dark:text-gray-400 hover:text-teal-500 transition-colors py-1">Testimonials</a>
                     </div>
@@ -328,22 +318,13 @@
                     </div>
                 </div>
 
-                <!-- Mobile Projects Dropdown -->
-                <div class="mobile-dropdown">
-                    <button class="mobile-dropdown-toggle text-base font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors py-2 flex items-center justify-between w-full">
-                        Projects
-                        <svg class="w-4 h-4 transition-transform" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"/>
-                        </svg>
-                    </button>
-                    <div class="mobile-dropdown-content hidden pl-4 mt-2 space-y-2">
-                        <a href="projects.html#current" class="block text-sm text-gray-600 dark:text-gray-400 hover:text-teal-500 transition-colors py-1">Current Projects</a>
-                        <a href="projects.html#completed" class="block text-sm text-gray-600 dark:text-gray-400 hover:text-teal-500 transition-colors py-1">Completed Projects</a>
-                        <a href="projects.html#upcoming" class="block text-sm text-gray-600 dark:text-gray-400 hover:text-teal-500 transition-colors py-1">Upcoming Projects</a>
-                        <a href="projects.html#gallery" class="block text-sm text-gray-600 dark:text-gray-400 hover:text-teal-500 transition-colors py-1">Project Gallery</a>
-                    </div>
-                </div>
+                <!-- Mobile Projects Link -->
+                <a class="text-base font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors py-2" href="projects.html">Projects</a>
 
+                <!-- Mobile Gallery Link -->
+                <a class="text-base font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors py-2" href="gallery.html">Gallery</a>
+
+                <!-- Mobile Contact Link -->
                 <a class="text-base font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors py-2" href="contact.html">Contact</a>
                 
                 <div class="pt-4 border-t border-gray-200 dark:border-gray-700">
@@ -1914,190 +1895,7 @@
         });
     });
 </script>
-        <!-- Program Outcomes Section -->
-        <section class="py-16 lg:py-24 bg-white dark:bg-gray-800">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900 dark:text-white">Program Outcomes</h2>
-                <p class="text-lg text-center text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">Measurable results from our key program areas over the last 5 years.</p>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="bg-teal-50 dark:bg-teal-900/20 rounded-xl p-6 border border-teal-100 dark:border-teal-800">
-                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center">
-                            <svg class="w-6 h-6 mr-2 text-teal-500" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M251.76,88.94l-120-64a8,8,0,0,0-7.52,0l-120,64a8,8,0,0,0,0,14.12L32,117.87v48.42a15.91,15.91,0,0,0,4.06,10.65C49.16,191.53,78.51,216,128,216a130,130,0,0,0,48-8.76V240a8,8,0,0,0,16,0V199.51a115.63,115.63,0,0,0,27.94-22.57A15.91,15.91,0,0,0,224,166.29V117.87l27.76-14.81a8,8,0,0,0,0-14.12Z"/>
-                            </svg>
-                            Education
-                        </h3>
-                        <ul class="space-y-3">
-                            <li class="flex items-start">
-                                <svg class="w-5 h-5 text-teal-500 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/>
-                                </svg>
-                                <span class="text-gray-600 dark:text-gray-300">5,200+ children enrolled in schools</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-5 h-5 text-teal-500 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/>
-                                </svg>
-                                <span class="text-gray-600 dark:text-gray-300">340 teachers trained in modern pedagogy</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-5 h-5 text-teal-500 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/>
-                                </svg>
-                                <span class="text-gray-600 dark:text-gray-300">15 schools built or renovated</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-5 h-5 text-teal-500 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/>
-                                </svg>
-                                <span class="text-gray-600 dark:text-gray-300">92% student retention rate</span>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="bg-teal-50 dark:bg-teal-900/20 rounded-xl p-6 border border-teal-100 dark:border-teal-800">
-                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center">
-                            <svg class="w-6 h-6 mr-2 text-teal-500" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M240,94c0,30.6-17.7,62-52.6,93.4a334.34,334.34,0,0,1-51.5,37.6,8.1,8.1,0,0,1-7.8,0,334.34,334.34,0,0,1-51.5-37.6C33.7,156,16,124.6,16,94A62.07,62.07,0,0,1,78,32c20.65,0,38.73,8.88,50,23.89C139.27,40.88,157.35,32,178,32A62.07,62.07,0,0,1,240,94Z"/>
-                            </svg>
-                            Healthcare
-                        </h3>
-                        <ul class="space-y-3">
-                            <li class="flex items-start">
-                                <svg class="w-5 h-5 text-teal-500 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/>
-                                </svg>
-                                <span class="text-gray-600 dark:text-gray-300">12,500+ patients treated annually</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-5 h-5 text-teal-500 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/>
-                                </svg>
-                                <span class="text-gray-600 dark:text-gray-300">8,700+ vaccinations administered</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-5 h-5 text-teal-500 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/>
-                                </svg>
-                                <span class="text-gray-600 dark:text-gray-300">22 medical facilities supported</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-5 h-5 text-teal-500 mr-2 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/>
-                                </svg>
-                                <span class="text-gray-600 dark:text-gray-300">45% reduction in child mortality</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <!-- Donor Impact Section -->
-        <section class="py-16 lg:py-24 bg-teal-50 dark:bg-teal-900/20">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900 dark:text-white">Your Impact</h2>
-                <p class="text-lg text-center text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">See how your contributions directly transform lives and communities.</p>
-                
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-                    <div class="bg-white dark:bg-gray-800 rounded-xl p-6 text-center shadow-sm border border-teal-100 dark:border-teal-800">
-                        <div class="text-4xl font-bold text-teal-600 dark:text-teal-400 mb-2">$50</div>
-                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-3">Provides school supplies</h3>
-                        <p class="text-gray-600 dark:text-gray-300">For 5 children for an entire school year</p>
-                    </div>
-                    
-                    <div class="bg-white dark:bg-gray-800 rounded-xl p-6 text-center shadow-sm border border-teal-100 dark:border-teal-800">
-                        <div class="text-4xl font-bold text-teal-600 dark:text-teal-400 mb-2">$100</div>
-                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-3">Supports health services</h3>
-                        <p class="text-gray-600 dark:text-gray-300">For 10 patients at our mobile clinics</p>
-                    </div>
-                    
-                    <div class="bg-white dark:bg-gray-800 rounded-xl p-6 text-center shadow-sm border border-teal-100 dark:border-teal-800">
-                        <div class="text-4xl font-bold text-teal-600 dark:text-teal-400 mb-2">$250</div>
-                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-3">Funds small business</h3>
-                        <p class="text-gray-600 dark:text-gray-300">Starter kit for an aspiring entrepreneur</p>
-                    </div>
-                </div>
-                
-                <div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-sm border border-teal-100 dark:border-teal-800">
-                    <div class="max-w-3xl mx-auto text-center">
-                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Join Our Community of Changemakers</h3>
-                        <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">Your support enables us to continue our vital work in communities around the world. Together, we can create lasting change.</p>
-                        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                            <button class="h-12 px-8 bg-teal-500 text-white font-bold rounded-lg text-base hover:bg-teal-600 transition-colors">
-                                <span>Donate Now</span>
-                            </button>
-                            <a href="contact.html" class="h-12 px-8 bg-white text-teal-500 font-bold rounded-lg text-base hover:bg-gray-100 transition-colors border border-teal-500 flex items-center justify-center">
-                                <span>Become a Partner</span>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Annual Reports Section -->
-        <section class="py-16 lg:py-24 bg-white dark:bg-gray-800">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-gray-900 dark:text-white">Annual Reports</h2>
-                <p class="text-lg text-center text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">Transparent documentation of our progress and financials year by year.</p>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <div class="bg-teal-50 dark:bg-teal-900/20 rounded-xl p-6 text-center border border-teal-100 dark:border-teal-800">
-                        <div class="text-teal-500 w-12 h-12 mx-auto mb-4 flex items-center justify-center bg-teal-100 dark:bg-teal-900/30 rounded-full">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M224,48H176V40a24,24,0,0,0-24-24H104A24,24,0,0,0,80,40v8H32A16,16,0,0,0,16,64V200a16,16,0,0,0,16,16H224a16,16,0,0,0,16-16V64A16,16,0,0,0,224,48ZM96,40a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96ZM224,200H32V64H80v8a8,8,0,0,0,8,8h80a8,8,0,0,0,8-8V64h48ZM168,112a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,112Zm0,32a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,144Zm0,32a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,176Z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">2023 Report</h3>
-                        <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">Our most recent year of impact and growth</p>
-                        <button class="text-teal-500 font-semibold text-sm hover:text-teal-600 transition-colors">
-                            Download PDF
-                        </button>
-                    </div>
-                    
-                    <div class="bg-teal-50 dark:bg-teal-900/20 rounded-xl p-6 text-center border border-teal-100 dark:border-teal-800">
-                        <div class="text-teal-500 w-12 h-12 mx-auto mb-4 flex items-center justify-center bg-teal-100 dark:bg-teal-900/30 rounded-full">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M224,48H176V40a24,24,0,0,0-24-24H104A24,24,0,0,0,80,40v8H32A16,16,0,0,0,16,64V200a16,16,0,0,0,16,16H224a16,16,0,0,0,16-16V64A16,16,0,0,0,224,48ZM96,40a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96ZM224,200H32V64H80v8a8,8,0,0,0,8,8h80a8,8,0,0,0,8-8V64h48ZM168,112a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,112Zm0,32a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,144Zm0,32a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,176Z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">2022 Report</h3>
-                        <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">Expanding our reach to 3 new countries</p>
-                        <button class="text-teal-500 font-semibold text-sm hover:text-teal-600 transition-colors">
-                            Download PDF
-                        </button>
-                    </div>
-                    
-                    <div class="bg-teal-50 dark:bg-teal-900/20 rounded-xl p-6 text-center border border-teal-100 dark:border-teal-800">
-                        <div class="text-teal-500 w-12 h-12 mx-auto mb-4 flex items-center justify-center bg-teal-100 dark:bg-teal-900/30 rounded-full">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M224,48H176V40a24,24,0,0,0-24-24H104A24,24,0,0,0,80,40v8H32A16,16,0,0,0,16,64V200a16,16,0,0,0,16,16H224a16,16,0,0,0,16-16V64A16,16,0,0,0,224,48ZM96,40a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96ZM224,200H32V64H80v8a8,8,0,0,0,8,8h80a8,8,0,0,0,8-8V64h48ZM168,112a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,112Zm0,32a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,144Zm0,32a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,176Z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">2021 Report</h3>
-                        <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">Navigating challenges, creating opportunities</p>
-                        <button class="text-teal-500 font-semibold text-sm hover:text-teal-600 transition-colors">
-                            Download PDF
-                        </button>
-                    </div>
-                    
-                    <div class="bg-teal-50 dark:bg-teal-900/20 rounded-xl p-6 text-center border border-teal-100 dark:border-teal-800">
-                        <div class="text-teal-500 w-12 h-12 mx-auto mb-4 flex items-center justify-center bg-teal-100 dark:bg-teal-900/30 rounded-full">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M224,48H176V40a24,24,0,0,0-24-24H104A24,24,0,0,0,80,40v8H32A16,16,0,0,0,16,64V200a16,16,0,0,0,16,16H224a16,16,0,0,0,16-16V64A16,16,0,0,0,224,48ZM96,40a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96ZM224,200H32V64H80v8a8,8,0,0,0,8,8h80a8,8,0,0,0,8-8V64h48ZM168,112a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,112Zm0,32a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,144Zm0,32a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,176Z"/>
-                            </svg>
-                        </div>
-                        <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">2020 Report</h3>
-                        <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">A decade of impact - 10 year anniversary</p>
-                        <button class="text-teal-500 font-semibold text-sm hover:text-teal-600 transition-colors">
-                            Download PDF
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
 
     <!-- Footer -->

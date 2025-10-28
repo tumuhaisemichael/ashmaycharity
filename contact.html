@@ -86,6 +86,7 @@
 <body class="bg-background-light dark:bg-background-dark font-sans text-gray-800 dark:text-gray-200">
     <!-- Header/Navigation -->
     <!-- Header/Navigation -->
+
 <header class="sticky top-0 z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border-b border-teal-200 dark:border-teal-800 shadow-sm">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16 lg:h-20">
@@ -174,24 +175,13 @@
                     </div>
                 </div>
 
-                <!-- Projects Dropdown -->
-                <div class="relative group">
-                    <button class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors flex items-center gap-1">
-                        Projects
-                        <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"/>
-                        </svg>
-                    </button>
-                    <div class="absolute top-full left-0 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-teal-100 dark:border-teal-800 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
-                        <div class="py-2">
-                            <a href="projects.html#current" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-teal-50 dark:hover:bg-teal-900/20 hover:text-teal-500 transition-colors">Current Projects</a>
-                            <a href="projects.html#completed" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-teal-50 dark:hover:bg-teal-900/20 hover:text-teal-500 transition-colors">Completed Projects</a>
-                            <a href="projects.html#upcoming" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-teal-50 dark:hover:bg-teal-900/20 hover:text-teal-500 transition-colors">Upcoming Projects</a>
-                            <a href="projects.html#gallery" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-teal-50 dark:hover:bg-teal-900/20 hover:text-teal-500 transition-colors">Project Gallery</a>
-                        </div>
-                    </div>
-                </div>
+                <!-- Projects Link (No Dropdown) -->
+                <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors" href="projects.html">Projects</a>
 
+                <!-- Gallery Link -->
+                <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors" href="gallery.html">Gallery</a>
+
+                <!-- Contact Link -->
                 <a class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors" href="contact.html">Contact</a>
             </nav>
 
@@ -226,7 +216,7 @@
                     <div class="mobile-dropdown-content hidden pl-4 mt-2 space-y-2">
                         <a href="index.html#about" class="block text-sm text-gray-600 dark:text-gray-400 hover:text-teal-500 transition-colors py-1">About Preview</a>
                         <a href="index.html#impact" class="block text-sm text-gray-600 dark:text-gray-400 hover:text-teal-500 transition-colors py-1">Impact Statistics</a>
-                        <a href="index.html#area" class="block text-sm text-gray-600 dark:text-gray-400 hover:text-teal-500 transition-colors py-1">Focous Area</a>
+                        <a href="index.html#area" class="block text-sm text-gray-600 dark:text-gray-400 hover:text-teal-500 transition-colors py-1">Focus Area</a>
                         <a href="index.html#project" class="block text-sm text-gray-600 dark:text-gray-400 hover:text-teal-500 transition-colors py-1">Featured Projects</a>
                         <a href="index.html#testimonial" class="block text-sm text-gray-600 dark:text-gray-400 hover:text-teal-500 transition-colors py-1">Testimonials</a>
                     </div>
@@ -280,22 +270,13 @@
                     </div>
                 </div>
 
-                <!-- Mobile Projects Dropdown -->
-                <div class="mobile-dropdown">
-                    <button class="mobile-dropdown-toggle text-base font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors py-2 flex items-center justify-between w-full">
-                        Projects
-                        <svg class="w-4 h-4 transition-transform" fill="currentColor" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"/>
-                        </svg>
-                    </button>
-                    <div class="mobile-dropdown-content hidden pl-4 mt-2 space-y-2">
-                        <a href="projects.html#current" class="block text-sm text-gray-600 dark:text-gray-400 hover:text-teal-500 transition-colors py-1">Current Projects</a>
-                        <a href="projects.html#completed" class="block text-sm text-gray-600 dark:text-gray-400 hover:text-teal-500 transition-colors py-1">Completed Projects</a>
-                        <a href="projects.html#upcoming" class="block text-sm text-gray-600 dark:text-gray-400 hover:text-teal-500 transition-colors py-1">Upcoming Projects</a>
-                        <a href="projects.html#gallery" class="block text-sm text-gray-600 dark:text-gray-400 hover:text-teal-500 transition-colors py-1">Project Gallery</a>
-                    </div>
-                </div>
+                <!-- Mobile Projects Link -->
+                <a class="text-base font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors py-2" href="projects.html">Projects</a>
 
+                <!-- Mobile Gallery Link -->
+                <a class="text-base font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors py-2" href="gallery.html">Gallery</a>
+
+                <!-- Mobile Contact Link -->
                 <a class="text-base font-medium text-gray-700 dark:text-gray-300 hover:text-teal-500 transition-colors py-2" href="contact.html">Contact</a>
                 
                 <div class="pt-4 border-t border-gray-200 dark:border-gray-700">
