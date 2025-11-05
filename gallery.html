@@ -601,16 +601,17 @@
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <!-- Toggle Switch -->
                 <div class="flex justify-center mb-12">
-                    <div class="toggle-container">
-                        <div class="toggle-option active" id="toggle-photos">
-                            <i class="fas fa-camera"></i>
-                            <span>Photos</span>
-                        </div>
-                        <div class="toggle-option" id="toggle-videos">
-                            <i class="fas fa-video"></i>
-                            <span>Videos</span>
-                        </div>
-                    </div>
+                    <div class="toggle-container" style="background-color: teal; padding: 10px; border-radius: 8px;">
+                <div class="toggle-option active" id="toggle-photos" style="color: black; padding: 10px 20px; display: inline-block; border-radius: 5px; font-weight: bold; cursor: pointer; background-color: rgba(255, 255, 255, 0.2);">
+                    <i class="fas fa-camera" style="margin-right: 8px; color: black;"></i>
+                    <span>Photos</span>
+                </div>
+                <div class="toggle-option" id="toggle-videos" style="color: black; padding: 10px 20px; display: inline-block; border-radius: 5px; cursor: pointer;">
+                    <i class="fas fa-video" style="margin-right: 8px; color: black;"></i>
+                    <span>Videos</span>
+                </div>
+            </div>
+
                 </div>
                 
                 <!-- Photos Gallery -->
@@ -618,107 +619,236 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                         <!-- Photo 1 -->
                         <div class="gallery-item photo-item relative overflow-hidden rounded-xl shadow-lg cursor-pointer group" data-index="0">
-                            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
+                            <img src="img/ashmay1.jpg" 
                                  alt="School children in Kenya" 
                                  class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                                 <div class="text-white">
-                                    <h3 class="font-bold">Education in Kenya</h3>
-                                    <p class="text-sm opacity-90">Students at our newly built school in rural Kenya</p>
+                                    <h3 class="font-bold">Ashmay Foundation</h3>
+                                    <p class="text-sm opacity-90">Ashmay Charity</p>
                                 </div>
                             </div>
                         </div>
                         
                         <!-- Photo 2 -->
-                        <div class="gallery-item photo-item relative overflow-hidden rounded-xl shadow-lg cursor-pointer group" data-index="1">
-                            <img src="https://images.unsplash.com/photo-1576765608622-2e96d3a6cbb1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
-                                 alt="Medical camp in Bangladesh" 
+                        <div class="gallery-item photo-item relative overflow-hidden rounded-xl shadow-lg cursor-pointer group" data-index="0">
+                            <img src="img/ashmay2.jpg" 
+                                 alt="School children in Kenya" 
                                  class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                                 <div class="text-white">
-                                    <h3 class="font-bold">Healthcare Outreach</h3>
-                                    <p class="text-sm opacity-90">Mobile medical camp serving remote communities in Bangladesh</p>
+                                    <h3 class="font-bold">Ashmay Foundation</h3>
+                                    <p class="text-sm opacity-90">Ashmay Charity</p>
                                 </div>
                             </div>
                         </div>
                         
                         <!-- Photo 3 -->
-                        <div class="gallery-item photo-item relative overflow-hidden rounded-xl shadow-lg cursor-pointer group" data-index="2">
-                            <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
-                                 alt="Women entrepreneurship training" 
+                        <div class="gallery-item photo-item relative overflow-hidden rounded-xl shadow-lg cursor-pointer group" data-index="0">
+                            <img src="img/ashmay3.jpg" 
+                                 alt="School children in Kenya" 
                                  class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                                 <div class="text-white">
-                                    <h3 class="font-bold">Women's Empowerment</h3>
-                                    <p class="text-sm opacity-90">Business skills training for women entrepreneurs</p>
+                                    <h3 class="font-bold">Ashmay Foundation</h3>
+                                    <p class="text-sm opacity-90">Ashmay Charity</p>
                                 </div>
                             </div>
                         </div>
                         
                         <!-- Photo 4 -->
-                        <div class="gallery-item photo-item relative overflow-hidden rounded-xl shadow-lg cursor-pointer group" data-index="3">
-                            <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
-                                 alt="Clean water project" 
+                        <div class="gallery-item photo-item relative overflow-hidden rounded-xl shadow-lg cursor-pointer group" data-index="0">
+                            <img src="img/ashmay4.jpg" 
+                                 alt="School children in Kenya" 
                                  class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                                 <div class="text-white">
-                                    <h3 class="font-bold">Clean Water Initiative</h3>
-                                    <p class="text-sm opacity-90">Installing water purification systems in rural communities</p>
+                                    <h3 class="font-bold">Ashmay Foundation</h3>
+                                    <p class="text-sm opacity-90">Ashmay Charity</p>
                                 </div>
                             </div>
                         </div>
                         
                         <!-- Photo 5 -->
-                        <div class="gallery-item photo-item relative overflow-hidden rounded-xl shadow-lg cursor-pointer group" data-index="4">
-                            <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
-                                 alt="Digital learning center" 
+                        <div class="gallery-item photo-item relative overflow-hidden rounded-xl shadow-lg cursor-pointer group" data-index="0">
+                            <img src="img/ashmay5.jpg" 
+                                 alt="School children in Kenya" 
                                  class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                                 <div class="text-white">
-                                    <h3 class="font-bold">Digital Education</h3>
-                                    <p class="text-sm opacity-90">Students at our digital learning center in Peru</p>
+                                    <h3 class="font-bold">Ashmay Foundation</h3>
+                                    <p class="text-sm opacity-90">Ashmay Charity</p>
                                 </div>
                             </div>
                         </div>
                         
                         <!-- Photo 6 -->
-                        <div class="gallery-item photo-item relative overflow-hidden rounded-xl shadow-lg cursor-pointer group" data-index="5">
-                            <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
-                                 alt="Medical team in field" 
+                        <div class="gallery-item photo-item relative overflow-hidden rounded-xl shadow-lg cursor-pointer group" data-index="0">
+                            <img src="img/ashmay6.jpg" 
+                                 alt="School children in Kenya" 
                                  class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                                 <div class="text-white">
-                                    <h3 class="font-bold">Field Medical Team</h3>
-                                    <p class="text-sm opacity-90">Our medical team providing care in remote areas</p>
+                                    <h3 class="font-bold">Ashmay Foundation</h3>
+                                    <p class="text-sm opacity-90">Ashmay Charity</p>
                                 </div>
                             </div>
                         </div>
                         
                         <!-- Photo 7 -->
-                        <div class="gallery-item photo-item relative overflow-hidden rounded-xl shadow-lg cursor-pointer group" data-index="6">
-                            <img src="https://images.unsplash.com/photo-1551833993-1d0ee4c0b837?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
-                                 alt="Community gathering" 
+                        <div class="gallery-item photo-item relative overflow-hidden rounded-xl shadow-lg cursor-pointer group" data-index="0">
+                            <img src="img/ashmay7.jpg" 
+                                 alt="School children in Kenya" 
                                  class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                                 <div class="text-white">
-                                    <h3 class="font-bold">Community Engagement</h3>
-                                    <p class="text-sm opacity-90">Community meeting at a newly built school facility</p>
+                                    <h3 class="font-bold">Ashmay Foundation</h3>
+                                    <p class="text-sm opacity-90">Ashmay Charity</p>
                                 </div>
                             </div>
                         </div>
                         
                         <!-- Photo 8 -->
-                        <div class="gallery-item photo-item relative overflow-hidden rounded-xl shadow-lg cursor-pointer group" data-index="7">
-                            <img src="https://images.unsplash.com/photo-1576669801947-92ead4d276f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
-                                 alt="Agricultural training" 
+                        <div class="gallery-item photo-item relative overflow-hidden rounded-xl shadow-lg cursor-pointer group" data-index="0">
+                            <img src="img/ashmay8.jpg" 
+                                 alt="School children in Kenya" 
                                  class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                                 <div class="text-white">
-                                    <h3 class="font-bold">Agricultural Development</h3>
-                                    <p class="text-sm opacity-90">Training farmers in sustainable agricultural techniques</p>
+                                    <h3 class="font-bold">Ashmay Foundation</h3>
+                                    <p class="text-sm opacity-90">Ashmay Charity</p>
                                 </div>
                             </div>
                         </div>
+
+                        <div class="gallery-item photo-item relative overflow-hidden rounded-xl shadow-lg cursor-pointer group" data-index="0">
+                            <img src="img/ashmay9.jpg" 
+                                 alt="School children in Kenya" 
+                                 class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                                <div class="text-white">
+                                    <h3 class="font-bold">Ashmay Foundation</h3>
+                                    <p class="text-sm opacity-90">Ashmay Charity</p>
+                                </div>
+                            </div>
+                        </div>
+
+                                                <!-- Photo 1 -->
+                        <div class="gallery-item photo-item relative overflow-hidden rounded-xl shadow-lg cursor-pointer group" data-index="0">
+                            <img src="img/ashmay10.jpg" 
+                                 alt="School children in Kenya" 
+                                 class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                                <div class="text-white">
+                                    <h3 class="font-bold">Ashmay Foundation</h3>
+                                    <p class="text-sm opacity-90">Ashmay Charity</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Photo 2 -->
+                        <div class="gallery-item photo-item relative overflow-hidden rounded-xl shadow-lg cursor-pointer group" data-index="0">
+                            <img src="img/ashmay11.jpg" 
+                                 alt="School children in Kenya" 
+                                 class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                                <div class="text-white">
+                                    <h3 class="font-bold">Ashmay Foundation</h3>
+                                    <p class="text-sm opacity-90">Ashmay Charity</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Photo 3 -->
+                        <div class="gallery-item photo-item relative overflow-hidden rounded-xl shadow-lg cursor-pointer group" data-index="0">
+                            <img src="img/ashmay12.jpg" 
+                                 alt="School children in Kenya" 
+                                 class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                                <div class="text-white">
+                                    <h3 class="font-bold">Ashmay Foundation</h3>
+                                    <p class="text-sm opacity-90">Ashmay Charity</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Photo 4 -->
+                        <div class="gallery-item photo-item relative overflow-hidden rounded-xl shadow-lg cursor-pointer group" data-index="0">
+                            <img src="img/ashmay13.jpg" 
+                                 alt="School children in Kenya" 
+                                 class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                                <div class="text-white">
+                                    <h3 class="font-bold">Ashmay Foundation</h3>
+                                    <p class="text-sm opacity-90">Ashmay Charity</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Photo 5 -->
+                        <div class="gallery-item photo-item relative overflow-hidden rounded-xl shadow-lg cursor-pointer group" data-index="0">
+                            <img src="img/ashmay14.jpg" 
+                                 alt="School children in Kenya" 
+                                 class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                                <div class="text-white">
+                                    <h3 class="font-bold">Ashmay Foundation</h3>
+                                    <p class="text-sm opacity-90">Ashmay Charity</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Photo 6 -->
+                        <div class="gallery-item photo-item relative overflow-hidden rounded-xl shadow-lg cursor-pointer group" data-index="0">
+                            <img src="img/ashmay15.jpg" 
+                                 alt="School children in Kenya" 
+                                 class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                                <div class="text-white">
+                                    <h3 class="font-bold">Ashmay Foundation</h3>
+                                    <p class="text-sm opacity-90">Ashmay Charity</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Photo 7 -->
+                        <div class="gallery-item photo-item relative overflow-hidden rounded-xl shadow-lg cursor-pointer group" data-index="0">
+                            <img src="img/ashmay16.jpg" 
+                                 alt="School children in Kenya" 
+                                 class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                                <div class="text-white">
+                                    <h3 class="font-bold">Ashmay Foundation</h3>
+                                    <p class="text-sm opacity-90">Ashmay Charity</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Photo 8 -->
+                        <div class="gallery-item photo-item relative overflow-hidden rounded-xl shadow-lg cursor-pointer group" data-index="0">
+                            <img src="img/ashmay17.jpg" 
+                                 alt="School children in Kenya" 
+                                 class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                                <div class="text-white">
+                                    <h3 class="font-bold">Ashmay Foundation</h3>
+                                    <p class="text-sm opacity-90">Ashmay Charity</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="gallery-item photo-item relative overflow-hidden rounded-xl shadow-lg cursor-pointer group" data-index="0">
+                            <img src="img/ashmay18.jpg" 
+                                 alt="School children in Kenya" 
+                                 class="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                                <div class="text-white">
+                                    <h3 class="font-bold">Ashmay Foundation</h3>
+                                    <p class="text-sm opacity-90">Ashmay Charity</p>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
                 
@@ -728,17 +858,19 @@
                         <!-- Video 1 -->
                         <div class="gallery-item video-item relative overflow-hidden rounded-xl shadow-lg cursor-pointer group" data-index="0">
                             <div class="w-full h-64 bg-gray-800 flex items-center justify-center relative">
-                                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
-                                     alt="Education in Kenya video thumbnail" 
-                                     class="w-full h-full object-cover opacity-70">
-                                <div class="video-play-icon">
+                                <video class="w-full h-full object-cover opacity-70" >
+                                    <source src="img/ashmayvid1.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <div class="video-play-icon" style="position: absolute; color: white; font-size: 2rem;">
                                     <i class="fas fa-play"></i>
                                 </div>
                             </div>
+
                             <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                                 <div class="text-white">
-                                    <h3 class="font-bold">Education Transformation</h3>
-                                    <p class="text-sm opacity-90">See how our school construction project is changing lives in Kenya</p>
+                                    <h3 class="font-bold">Ashmay Foundation</h3>
+                                    <p class="text-sm opacity-90">Ashmay Charity</p>
                                 </div>
                             </div>
                         </div>
@@ -746,17 +878,19 @@
                         <!-- Video 2 -->
                         <div class="gallery-item video-item relative overflow-hidden rounded-xl shadow-lg cursor-pointer group" data-index="1">
                             <div class="w-full h-64 bg-gray-800 flex items-center justify-center relative">
-                                <img src="https://images.unsplash.com/photo-1576765608622-2e96d3a6cbb1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
-                                     alt="Healthcare in Bangladesh video thumbnail" 
-                                     class="w-full h-full object-cover opacity-70">
-                                <div class="video-play-icon">
+                                <video class="w-full h-full object-cover opacity-70">
+                                    <source src="img/ashmayvid2.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <div class="video-play-icon" style="position: absolute; color: white; font-size: 2rem;">
                                     <i class="fas fa-play"></i>
                                 </div>
                             </div>
+
                             <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                                 <div class="text-white">
-                                    <h3 class="font-bold">Mobile Health Clinics</h3>
-                                    <p class="text-sm opacity-90">A day in the life of our mobile medical teams in Bangladesh</p>
+                                    <h3 class="font-bold">Ashmay Foundation</h3>
+                                    <p class="text-sm opacity-90">Ashmay Charity</p>
                                 </div>
                             </div>
                         </div>
@@ -764,23 +898,25 @@
                         <!-- Video 3 -->
                         <div class="gallery-item video-item relative overflow-hidden rounded-xl shadow-lg cursor-pointer group" data-index="2">
                             <div class="w-full h-64 bg-gray-800 flex items-center justify-center relative">
-                                <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
-                                     alt="Women empowerment video thumbnail" 
-                                     class="w-full h-full object-cover opacity-70">
-                                <div class="video-play-icon">
+                                <video class="w-full h-full object-cover opacity-70" >
+                                    <source src="img/ashmayvid3.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <div class="video-play-icon" style="position: absolute; color: white; font-size: 2rem;">
                                     <i class="fas fa-play"></i>
                                 </div>
                             </div>
+
                             <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                                 <div class="text-white">
-                                    <h3 class="font-bold">Women's Success Stories</h3>
-                                    <p class="text-sm opacity-90">Hear from women whose lives have been transformed through our programs</p>
+                                    <h3 class="font-bold">Ashmay Foundation</h3>
+                                    <p class="text-sm opacity-90">Ashmay Charity</p>
                                 </div>
                             </div>
                         </div>
                         
                         <!-- Video 4 -->
-                        <div class="gallery-item video-item relative overflow-hidden rounded-xl shadow-lg cursor-pointer group" data-index="3">
+                        <!-- <div class="gallery-item video-item relative overflow-hidden rounded-xl shadow-lg cursor-pointer group" data-index="3">
                             <div class="w-full h-64 bg-gray-800 flex items-center justify-center relative">
                                 <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" 
                                      alt="Clean water project video thumbnail" 
@@ -795,7 +931,7 @@
                                     <p class="text-sm opacity-90">Documentary on how clean water is transforming communities</p>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -949,69 +1085,119 @@
         // Photo data
         const photos = [
             {
-                src: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
-                title: "Education in Kenya",
-                description: "Students at our newly built school in rural Kenya. This school now serves over 500 children who previously had no access to formal education."
+                src: "img/ashmay1.jpg",
+                title: "Ashmay Foundation",
+                description: "Ashmay Charity."
             },
             {
-                src: "https://images.unsplash.com/photo-1576765608622-2e96d3a6cbb1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
-                title: "Healthcare Outreach",
-                description: "Our mobile medical camp serving remote communities in Bangladesh. We've provided healthcare services to over 10,000 people through these initiatives."
+                src: "img/ashmay2.jpg",
+                title: "Ashmay Foundation",
+                description: "Ashmay Charity."
             },
             {
-                src: "https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
-                title: "Women's Empowerment",
-                description: "Business skills training for women entrepreneurs. Over 300 women have launched successful small businesses through our programs."
+                src: "img/ashmay3.jpg",
+                title: "Ashmay Foundation",
+                description: "Ashmay Charity."
             },
             {
-                src: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
-                title: "Clean Water Initiative",
-                description: "Installing water purification systems in rural communities. These systems now provide clean drinking water to over 15,000 people."
+                src: "img/ashmay4.jpg",
+                title: "Ashmay Foundation",
+                description: "Ashmay Charity."
             },
             {
-                src: "https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
-                title: "Digital Education",
-                description: "Students at our digital learning center in Peru. We've established 10 centers that provide computer skills training to underserved youth."
+                src: "img/ashmay5.jpg",
+                title: "Ashmay Foundation",
+                description: "Ashmay Charity."
             },
             {
-                src: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
-                title: "Field Medical Team",
-                description: "Our medical team providing care in remote areas. These dedicated professionals travel to communities with limited access to healthcare facilities."
+                src: "img/ashmay6.jpg",
+                title: "Ashmay Foundation",
+                description: "Ashmay Charity."
             },
             {
-                src: "https://images.unsplash.com/photo-1551833993-1d0ee4c0b837?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
-                title: "Community Engagement",
-                description: "Community meeting at a newly built school facility. We work closely with local communities to ensure our projects meet their specific needs."
+                src: "img/ashmay7.jpg",
+                title: "Ashmay Foundation",
+                description: "Ashmay Charity."
             },
             {
-                src: "https://images.unsplash.com/photo-1576669801947-92ead4d276f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
-                title: "Agricultural Development",
-                description: "Training farmers in sustainable agricultural techniques. Our programs have helped increase crop yields by 40% in participating communities."
+                src: "img/ashmay8.jpg",
+                title: "Ashmay Foundation",
+                description: "Ashmay Charity."
+            },
+            {
+                src: "img/ashmay9.jpg",
+                title: "Ashmay Foundation",
+                description: "Ashmay Charity."
+            },
+            {
+                src: "img/ashmay10.jpg",
+                title: "Ashmay Foundation",
+                description: "Ashmay Charity."
+            },
+            {
+                src: "img/ashmay11.jpg",
+                title: "Ashmay Foundation",
+                description: "Ashmay Charity."
+            },
+            {
+                src: "img/ashmay12.jpg",
+                title: "Ashmay Foundation",
+                description: "Ashmay Charity."
+            },
+            {
+                src: "img/ashmay13.jpg",
+                title: "Ashmay Foundation",
+                description: "Ashmay Charity."
+            },
+            {
+                src: "img/ashmay14.jpg",
+                title: "Ashmay Foundation",
+                description: "Ashmay Charity."
+            },
+            {
+                src: "img/ashmay15.jpg",
+                title: "Ashmay Foundation",
+                description: "Ashmay Charity."
+            },
+            {
+                src: "img/ashmay16.jpg",
+                title: "Ashmay Foundation",
+                description: "Ashmay Charity."
+            },
+            {
+                src: "img/ashmay17.jpg",
+                title: "Ashmay Foundation",
+                description: "Ashmay Charity."
+            },
+            {
+                src: "img/ashmay18.jpg",
+                title: "Ashmay Foundation",
+                description: "Ashmay Charity."
             }
         ];
         
         // Video data
         const videos = [
             {
-                src: "https://player.vimeo.com/video/76979871?h=8272103f6e",
-                title: "Education Transformation",
-                description: "See how our school construction project is changing lives in Kenya. This video documents the journey from groundbreaking to the first day of classes."
+                src: "img/ashmayvid1.mp4",
+                title: "Ashmay Foundation",
+                description: "Ashmay Charity."
             },
             {
-                src: "https://player.vimeo.com/video/139707837?h=0e8c9fe3e5",
-                title: "Mobile Health Clinics",
-                description: "A day in the life of our mobile medical teams in Bangladesh. Follow our healthcare workers as they bring essential services to remote communities."
+                src: "img/ashmayvid2.mp4",
+                title: "Ashmay Foundation",
+                description: "Ashmay Charity."
             },
             {
-                src: "https://player.vimeo.com/video/1084537?h=1c58d96a0f",
-                title: "Women's Success Stories",
-                description: "Hear from women whose lives have been transformed through our programs. These inspiring stories showcase the power of economic empowerment."
+                src: "img/ashmayvid3.mp4",
+                title: "Ashmay Foundation",
+                description: "Ashmay Charity."
             },
-            {
-                src: "https://player.vimeo.com/video/139707837?h=0e8c9fe3e5",
-                title: "Clean Water Impact",
-                description: "Documentary on how clean water is transforming communities. This film explores the profound health and economic benefits of access to safe drinking water."
-            }
+            // {
+            //     src: "https://player.vimeo.com/video/139707837?h=0e8c9fe3e5",
+            //     title: "Clean Water Impact",
+            //     description: "Documentary on how clean water is transforming communities. This film explores the profound health and economic benefits of access to safe drinking water."
+            // }
         ];
         
         let currentMediaType = 'photo'; // 'photo' or 'video'
