@@ -3,12 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery - Ashmay Charity</title>
+    <title>Gallery - Ashmay Foundation</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <!-- Basic Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ashmay Foundation - A charitable organization dedicated to making a positive impact through education, healthcare, and community development initiatives.">
+    <meta name="keywords" content="charity, nonprofit, foundation, education, healthcare, community development, donations, Ashmay Foundation">
+    <meta name="author" content="Ashmay Foundation">
+    
+    <!-- Favicon Links (Multiple Sizes for Different Devices) -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="manifest" href="site.webmanifest">
+    
+    <!-- Open Graph Meta Tags (For Social Media Sharing) -->
+    <meta property="og:title" content="Ashmay Foundation - Making a Difference Through Charity">
+    <meta property="og:description" content="Join Ashmay Foundation in creating positive change through education, healthcare, and community development programs.">
+    <meta property="og:image" content="https://ashmayfoundation.org/images/og-image.jpg">
+    <meta property="og:url" content="https://ashmayfoundation.org">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Ashmay Foundation">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ashmay Foundation - Making a Difference Through Charity">
+    <meta name="twitter:description" content="Join Ashmay Foundation in creating positive change through education, healthcare, and community development programs.">
+    <meta name="twitter:image" content="https://ashmayfoundation.org/images/twitter-image.jpg">
+    <meta name="twitter:site" content="@AshmayFoundation">
+    
+    <!-- Structured Data (JSON-LD) for Better SEO -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Ashmay Foundation",
+        "url": "https://ashmayfoundation.org",
+        "logo": "https://ashmayfoundation.org/favicon.ico",
+        "description": "A charitable organization dedicated to making a positive impact through education, healthcare, and community development initiatives.",
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "London UK",
+        "addressLocality": "London",
+        "addressRegion": "Greater London",
+        "addressCountry": "UK"
+    },
+    "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+44-7891-403783",
+        "contactType": "customer service"
+    },
+        "sameAs": [
+            "https://www.facebook.com/AshmayFoundation",
+            "https://www.twitter.com/AshmayFoundation",
+            "https://www.instagram.com/AshmayFoundation"
+        ]
+    }
+    </script>
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://ashmayfoundation.org">
+    
+    <!-- Your existing CSS and other head elements -->
+    <title>Ashmay Foundation - Making a Difference Through Charity</title>
     <script>
         tailwind.config = {
             theme: {
@@ -263,14 +331,20 @@
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16 lg:h-20">
             <!-- Logo -->
-            <div class="flex items-center gap-3">
-                <div class="w-8 h-8 text-teal-500">
-                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z" fill="currentColor"/>
-                    </svg>
-                </div>
-                <h2 class="text-xl font-bold text-gray-900 dark:text-white">Ashmay Charity</h2>
-            </div>
+<!-- Logo -->
+<div class="flex items-center gap-3">
+    <a href="index.html" class="flex items-center gap-3">
+        <!-- Try these larger favicon files in order of preference -->
+        <img src="android-chrome-192x192.png" alt="Ashmay Foundation Logo" width="150" height="150" class="w-20 h-20">        <!-- OR -->
+        <!-- <img src="android-chrome-512x512.png" alt="Ashmay Foundation Logo" width="48" height="48" class="w-12 h-12"> -->
+        <!-- OR -->
+        <!-- <img src="apple-touch-icon.png" alt="Ashmay Foundation Logo" width="48" height="48" class="w-12 h-12"> -->
+        <!-- OR -->
+        <!-- <img src="favicon-32x32.png" alt="Ashmay Foundation Logo" width="40" height="40" class="w-10 h-10"> -->
+        
+        <h2 class="text-xl font-bold text-gray-900 dark:text-white">Ashmay Foundation</h2>
+    </a>
+</div>
 
             <!-- Desktop Navigation -->
             <nav class="hidden lg:flex items-center gap-8">
@@ -625,7 +699,7 @@
                             <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                                 <div class="text-white">
                                     <h3 class="font-bold">Ashmay Foundation</h3>
-                                    <p class="text-sm opacity-90">Ashmay Charity</p>
+                                    <p class="text-sm opacity-90">Ashmay Foundation</p>
                                 </div>
                             </div>
                         </div>
@@ -638,7 +712,7 @@
                             <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                                 <div class="text-white">
                                     <h3 class="font-bold">Ashmay Foundation</h3>
-                                    <p class="text-sm opacity-90">Ashmay Charity</p>
+                                    <p class="text-sm opacity-90">Ashmay Foundation</p>
                                 </div>
                             </div>
                         </div>
@@ -651,7 +725,7 @@
                             <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                                 <div class="text-white">
                                     <h3 class="font-bold">Ashmay Foundation</h3>
-                                    <p class="text-sm opacity-90">Ashmay Charity</p>
+                                    <p class="text-sm opacity-90">Ashmay Foundation</p>
                                 </div>
                             </div>
                         </div>
@@ -664,7 +738,7 @@
                             <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                                 <div class="text-white">
                                     <h3 class="font-bold">Ashmay Foundation</h3>
-                                    <p class="text-sm opacity-90">Ashmay Charity</p>
+                                    <p class="text-sm opacity-90">Ashmay Foundation</p>
                                 </div>
                             </div>
                         </div>
@@ -677,7 +751,7 @@
                             <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                                 <div class="text-white">
                                     <h3 class="font-bold">Ashmay Foundation</h3>
-                                    <p class="text-sm opacity-90">Ashmay Charity</p>
+                                    <p class="text-sm opacity-90">Ashmay Foundation</p>
                                 </div>
                             </div>
                         </div>
@@ -690,7 +764,7 @@
                             <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                                 <div class="text-white">
                                     <h3 class="font-bold">Ashmay Foundation</h3>
-                                    <p class="text-sm opacity-90">Ashmay Charity</p>
+                                    <p class="text-sm opacity-90">Ashmay Foundation</p>
                                 </div>
                             </div>
                         </div>
@@ -703,7 +777,7 @@
                             <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                                 <div class="text-white">
                                     <h3 class="font-bold">Ashmay Foundation</h3>
-                                    <p class="text-sm opacity-90">Ashmay Charity</p>
+                                    <p class="text-sm opacity-90">Ashmay Foundation</p>
                                 </div>
                             </div>
                         </div>
@@ -716,7 +790,7 @@
                             <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                                 <div class="text-white">
                                     <h3 class="font-bold">Ashmay Foundation</h3>
-                                    <p class="text-sm opacity-90">Ashmay Charity</p>
+                                    <p class="text-sm opacity-90">Ashmay Foundation</p>
                                 </div>
                             </div>
                         </div>
@@ -728,7 +802,7 @@
                             <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                                 <div class="text-white">
                                     <h3 class="font-bold">Ashmay Foundation</h3>
-                                    <p class="text-sm opacity-90">Ashmay Charity</p>
+                                    <p class="text-sm opacity-90">Ashmay Foundation</p>
                                 </div>
                             </div>
                         </div>
@@ -741,7 +815,7 @@
                             <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                                 <div class="text-white">
                                     <h3 class="font-bold">Ashmay Foundation</h3>
-                                    <p class="text-sm opacity-90">Ashmay Charity</p>
+                                    <p class="text-sm opacity-90">Ashmay Foundation</p>
                                 </div>
                             </div>
                         </div>
@@ -754,7 +828,7 @@
                             <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                                 <div class="text-white">
                                     <h3 class="font-bold">Ashmay Foundation</h3>
-                                    <p class="text-sm opacity-90">Ashmay Charity</p>
+                                    <p class="text-sm opacity-90">Ashmay Foundation</p>
                                 </div>
                             </div>
                         </div>
@@ -767,7 +841,7 @@
                             <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                                 <div class="text-white">
                                     <h3 class="font-bold">Ashmay Foundation</h3>
-                                    <p class="text-sm opacity-90">Ashmay Charity</p>
+                                    <p class="text-sm opacity-90">Ashmay Foundation</p>
                                 </div>
                             </div>
                         </div>
@@ -780,7 +854,7 @@
                             <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                                 <div class="text-white">
                                     <h3 class="font-bold">Ashmay Foundation</h3>
-                                    <p class="text-sm opacity-90">Ashmay Charity</p>
+                                    <p class="text-sm opacity-90">Ashmay Foundation</p>
                                 </div>
                             </div>
                         </div>
@@ -793,7 +867,7 @@
                             <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                                 <div class="text-white">
                                     <h3 class="font-bold">Ashmay Foundation</h3>
-                                    <p class="text-sm opacity-90">Ashmay Charity</p>
+                                    <p class="text-sm opacity-90">Ashmay Foundation</p>
                                 </div>
                             </div>
                         </div>
@@ -806,7 +880,7 @@
                             <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                                 <div class="text-white">
                                     <h3 class="font-bold">Ashmay Foundation</h3>
-                                    <p class="text-sm opacity-90">Ashmay Charity</p>
+                                    <p class="text-sm opacity-90">Ashmay Foundation</p>
                                 </div>
                             </div>
                         </div>
@@ -819,7 +893,7 @@
                             <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                                 <div class="text-white">
                                     <h3 class="font-bold">Ashmay Foundation</h3>
-                                    <p class="text-sm opacity-90">Ashmay Charity</p>
+                                    <p class="text-sm opacity-90">Ashmay Foundation</p>
                                 </div>
                             </div>
                         </div>
@@ -832,7 +906,7 @@
                             <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                                 <div class="text-white">
                                     <h3 class="font-bold">Ashmay Foundation</h3>
-                                    <p class="text-sm opacity-90">Ashmay Charity</p>
+                                    <p class="text-sm opacity-90">Ashmay Foundation</p>
                                 </div>
                             </div>
                         </div>
@@ -844,7 +918,7 @@
                             <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                                 <div class="text-white">
                                     <h3 class="font-bold">Ashmay Foundation</h3>
-                                    <p class="text-sm opacity-90">Ashmay Charity</p>
+                                    <p class="text-sm opacity-90">Ashmay Foundation</p>
                                 </div>
                             </div>
                         </div>
@@ -870,7 +944,7 @@
                             <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                                 <div class="text-white">
                                     <h3 class="font-bold">Ashmay Foundation</h3>
-                                    <p class="text-sm opacity-90">Ashmay Charity</p>
+                                    <p class="text-sm opacity-90">Ashmay Foundation</p>
                                 </div>
                             </div>
                         </div>
@@ -890,7 +964,7 @@
                             <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                                 <div class="text-white">
                                     <h3 class="font-bold">Ashmay Foundation</h3>
-                                    <p class="text-sm opacity-90">Ashmay Charity</p>
+                                    <p class="text-sm opacity-90">Ashmay Foundation</p>
                                 </div>
                             </div>
                         </div>
@@ -910,7 +984,7 @@
                             <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
                                 <div class="text-white">
                                     <h3 class="font-bold">Ashmay Foundation</h3>
-                                    <p class="text-sm opacity-90">Ashmay Charity</p>
+                                    <p class="text-sm opacity-90">Ashmay Foundation</p>
                                 </div>
                             </div>
                         </div>
@@ -987,7 +1061,7 @@
                                 <path d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z" fill="currentColor"/>
                             </svg>
                         </div>
-                        <h2 class="text-xl font-bold">Ashmay Charity</h2>
+                        <h2 class="text-xl font-bold">Ashmay Foundation</h2>
                     </div>
                     <p class="text-gray-400 mb-6 max-w-md">We are dedicated to creating sustainable change in underserved communities through education, healthcare, and economic development initiatives.</p>
                     <div class="flex gap-4">
@@ -1031,7 +1105,7 @@
             </div>
             
             <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-                <p class="text-gray-400 text-sm">© 2024 Ashmay Charity. All rights reserved.</p>
+                <p class="text-gray-400 text-sm">© 2025 Ashmay Foundation. All rights reserved.</p>
                 <div class="flex gap-6 mt-4 md:mt-0">
                     <a class="text-gray-400 hover:text-teal-400 transition-colors text-sm" href="#">Privacy Policy</a>
                     <a class="text-gray-400 hover:text-teal-400 transition-colors text-sm" href="#">Terms of Service</a>
@@ -1087,92 +1161,92 @@
             {
                 src: "img/ashmay1.jpg",
                 title: "Ashmay Foundation",
-                description: "Ashmay Charity."
+                description: "Ashmay Foundation."
             },
             {
                 src: "img/ashmay2.jpg",
                 title: "Ashmay Foundation",
-                description: "Ashmay Charity."
+                description: "Ashmay Foundation."
             },
             {
                 src: "img/ashmay3.jpg",
                 title: "Ashmay Foundation",
-                description: "Ashmay Charity."
+                description: "Ashmay Foundation."
             },
             {
                 src: "img/ashmay4.jpg",
                 title: "Ashmay Foundation",
-                description: "Ashmay Charity."
+                description: "Ashmay Foundation."
             },
             {
                 src: "img/ashmay5.jpg",
                 title: "Ashmay Foundation",
-                description: "Ashmay Charity."
+                description: "Ashmay Foundation."
             },
             {
                 src: "img/ashmay6.jpg",
                 title: "Ashmay Foundation",
-                description: "Ashmay Charity."
+                description: "Ashmay Foundation."
             },
             {
                 src: "img/ashmay7.jpg",
                 title: "Ashmay Foundation",
-                description: "Ashmay Charity."
+                description: "Ashmay Foundation."
             },
             {
                 src: "img/ashmay8.jpg",
                 title: "Ashmay Foundation",
-                description: "Ashmay Charity."
+                description: "Ashmay Foundation."
             },
             {
                 src: "img/ashmay9.jpg",
                 title: "Ashmay Foundation",
-                description: "Ashmay Charity."
+                description: "Ashmay Foundation."
             },
             {
                 src: "img/ashmay10.jpg",
                 title: "Ashmay Foundation",
-                description: "Ashmay Charity."
+                description: "Ashmay Foundation."
             },
             {
                 src: "img/ashmay11.jpg",
                 title: "Ashmay Foundation",
-                description: "Ashmay Charity."
+                description: "Ashmay Foundation."
             },
             {
                 src: "img/ashmay12.jpg",
                 title: "Ashmay Foundation",
-                description: "Ashmay Charity."
+                description: "Ashmay Foundation."
             },
             {
                 src: "img/ashmay13.jpg",
                 title: "Ashmay Foundation",
-                description: "Ashmay Charity."
+                description: "Ashmay Foundation."
             },
             {
                 src: "img/ashmay14.jpg",
                 title: "Ashmay Foundation",
-                description: "Ashmay Charity."
+                description: "Ashmay Foundation."
             },
             {
                 src: "img/ashmay15.jpg",
                 title: "Ashmay Foundation",
-                description: "Ashmay Charity."
+                description: "Ashmay Foundation."
             },
             {
                 src: "img/ashmay16.jpg",
                 title: "Ashmay Foundation",
-                description: "Ashmay Charity."
+                description: "Ashmay Foundation."
             },
             {
                 src: "img/ashmay17.jpg",
                 title: "Ashmay Foundation",
-                description: "Ashmay Charity."
+                description: "Ashmay Foundation."
             },
             {
                 src: "img/ashmay18.jpg",
                 title: "Ashmay Foundation",
-                description: "Ashmay Charity."
+                description: "Ashmay Foundation."
             }
         ];
         
@@ -1181,17 +1255,17 @@
             {
                 src: "img/ashmayvid1.mp4",
                 title: "Ashmay Foundation",
-                description: "Ashmay Charity."
+                description: "Ashmay Foundation."
             },
             {
                 src: "img/ashmayvid2.mp4",
                 title: "Ashmay Foundation",
-                description: "Ashmay Charity."
+                description: "Ashmay Foundation."
             },
             {
                 src: "img/ashmayvid3.mp4",
                 title: "Ashmay Foundation",
-                description: "Ashmay Charity."
+                description: "Ashmay Foundation."
             },
             // {
             //     src: "https://player.vimeo.com/video/139707837?h=0e8c9fe3e5",
